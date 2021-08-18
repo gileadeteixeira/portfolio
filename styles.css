@@ -1,0 +1,316 @@
+/* Poppins: Light 300, Regular 400, Medium 500, Semi-bold 600, Bold 700 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Quicksand: Light 300, Regular 400, Medium 500, Semi-bold 600, Bold 700 */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis */
+:root{
+    /* Fontes */
+    --main-font: 'Poppins', sans-serif;
+    --alternative-font: 'Quicksand', sans-serif;
+
+    /* Estilos das Fontes */
+    --light: 300;
+    --regular: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 700;
+
+    /* Tamanhos das fontes */
+    --p: 8px;
+    --pp: 10px;
+    --ppp: 12px;
+    --m: 15px;
+    --mm: 20px;
+    --mmm: 25px;
+    --g: 30px;
+    --gg: 40px;
+    --ggg: 100px;
+
+    --responsive-font-2-5: 2.5vw;
+    --responsive-font-5: 5vw;
+    --responsive-font-10: 10vw;
+    
+    /* Tamanhos de componentes */
+
+    --responsive-icon-6: 6vw;
+    --responsive-icon-8: 8vw;
+    --icon-max-width: 40px;
+
+    --img-min-width: 200px;
+
+    --btn-padding: 10px;
+    --div-icon-p: 24px;
+    --div-icon-g: 50px;
+
+    --icon-p: calc(var(--div-icon-p) - 10);
+    --icon-g: calc(var(--div-icon-g) - 20);
+
+    --icon-regular-p: 20px;
+    --icon-regular-m: 24px;
+    --icon-regular-g: 40px;
+
+    --tech-icon-p: 50px;
+    --tech-icon-g: 100px;
+
+    --screenshoot-max-width: 500px;
+
+    --qrcode-max-width: 150px;
+
+    --indicator-p: 10px;
+    --indicator-g: 20px;
+
+    --list-item-min-width: 130px;
+    --list-item-max-width: 300px;
+
+    --contact-item-min: 40px;
+    --contact-item-max: 150px;
+
+    --box-border-radius-p: 5px;
+    --box-border-radius-m: 10px;
+    --box-border-radius-g: 50px;
+
+    --modal-max-width: 800px;
+    --modal-opacity: #00000099;
+
+    /* Cores */
+    --black: #000000;
+    --dark-grey: #5B5B58;
+    --medium-grey: #939292;
+    --light-grey: #C4C4C4;
+    --extra-light-grey: #E5E5E5;
+    --white: #FFFFFF;
+
+    --filter-black: #invert(0%) sepia(7%) saturate(0%) hue-rotate(131deg) brightness(96%) contrast(106%);
+    --filter-dark-grey: invert(36%) sepia(6%) saturate(190%) hue-rotate(22deg) brightness(95%) contrast(91%);
+    --filter-medium-grey: invert(64%) sepia(0%) saturate(159%) hue-rotate(262deg) brightness(91%) contrast(95%);
+    --filter-light-grey: invert(75%) sepia(31%) saturate(18%) hue-rotate(11deg) brightness(99%) contrast(92%);
+    --filter-extra-light-grey: invert(99%) sepia(11%) saturate(3290%) hue-rotate(287deg) brightness(140%) contrast(80%);
+    --filter-white: invert(96%) sepia(4%) saturate(15%) hue-rotate(91deg) brightness(104%) contrast(104%);
+
+    --green: #23A959;
+    --yellow: #E4AE22;
+    --red: #C61E1E;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    html, body{
+        height: 100%;
+    }
+    .container {
+        height: 100%;
+    }
+    body{
+        background-color: var(--extra-light-grey);
+        margin: 0;
+        padding: 0;
+        font-family: var(--main-font);
+        font-size: var(--pp);
+    }
+    header{
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        background-color: var(--black);
+        color: var(--white);
+        width: 100%;
+        
+    }
+    header div.header-box{   
+        position: relative;         
+        width: 100%;    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    header div.logo{  
+        position: relative;      
+        display: flex;
+        align-items: center;
+        padding: 5px;
+    }
+    header img#gt-logo{
+        position: relative;
+        width: var(--responsive-icon-6);
+        max-width: var(--icon-max-width);
+    }
+    header h1{
+        position: relative;
+        font-size: var(--responsive-font-5);
+        font-weight: var(--bold);
+        margin: 0px 0px 0px 10px;
+    }
+    header div.menu{  
+        position: relative;      
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+
+    }
+    header button#menu-btn-open{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 5px;
+    }
+    header img#hamburguer-icon{
+        position: relative;
+        filter: var(--filter-white);
+        width: var(--responsive-icon-8);
+        max-width: var(--icon-max-width);
+    }
+    .modal-menu {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        background-color: var(--modal-opacity);
+        display: flex;        
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .modal-menu .right-bar{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #000000;
+        padding: 10px;
+    }
+    .modal-menu button#menu-btn-close{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 10px;
+        margin: 0px;
+        align-self: flex-end;
+    }
+    .modal-menu img#close-icon{
+        filter: var(--filter-white);
+        width: var(--icon-regular-p);
+    }
+    .modal-menu .mobile-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 10px 10px 10px;
+    }
+    .mobile-nav ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+    }
+    .mobile-nav li{
+        padding-bottom: 15px;
+    }
+    .mobile-nav a{        
+        text-decoration: none;
+        color: var(--white);
+        font-weight: var(--semi-bold)
+    }
+    section{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    #inicio, #sobre-mim, #principais-projetos, #tecnologias, #contato{
+        display: flex;
+        padding: 10px 20px;
+        height: 100%;
+    }
+    #inicio {
+        flex-wrap: row wrap;
+    }
+    .welcome-area {
+        padding-top: 10px;
+        width: 100%;
+    }
+    .welcome-area h2{
+        font-weight: var(--bold);
+        font-size: var(--responsive-font-10);
+        max-height: 150px;
+        color: var(--dark-grey);
+        margin: 0px;        
+    }
+    .welcome-area p{
+        font-weight: var(--bold);
+        font-size: var(--responsive-font-5);
+        max-height: 60px;
+        color: var(--dark-grey);
+        margin: 0px;
+    }
+    .welcome-area strong{
+        color: var(--black);
+    }
+    .welcome-btns-area{
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: stretch;
+        align-items: center;
+    }
+    .welcome-btns-area button{
+        border: none;
+        background: none;
+        background-color: var(--black);
+        color: var(--white);
+        width: 20%;
+        height: var(--responsive-icon-8);
+        max-height: 55px;
+        max-width: 150px;
+        border-radius: 5px;
+        font-family: var(--main-font);
+        font-weight: var(--semi-bold);
+        font-size: var(--responsive-font-2-5);
+    }
+    .welcome-socials{
+        display: flex;
+        align-items: center;
+        justify-content: center;     
+    }
+    .welcome-socials a{
+        display: flex;
+        margin: 0px 10px;
+    }
+    .welcome-socials img{
+        width: var(--responsive-icon-8);
+        max-width: var(--icon-max-width);
+    }
+    .photo-area{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    #my-photo{        
+        width: 60vw;
+        height: auto;
+        max-width: 300px;
+    }
+};
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {};
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {};
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {};
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {};
