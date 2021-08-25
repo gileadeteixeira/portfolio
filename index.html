@@ -6,44 +6,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gileade Teixeira</title>
     <link rel="shortcut icon" href="./assets/icons/inApp-icons/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./styles.css">
     <script src="./main.js" type="module"></script>
 </head>
 <body>
-    <div class="container">
-        <header id="header" >
-            <div class="header-box">
-                <div class="logo">
-                    <img src="./assets/personal/gt.svg" alt="gt-logo" id="gt-logo" aria-label="logo">
-                    <h1>GILEADE TEIXEIRA</h1>
-                </div>
-                <div class="menu">
-                    <button id="menu-btn-open">
-                        <img src="./assets/icons/inApp-icons/menu.svg" alt="hamburguer-icon" id="hamburguer-icon">
-                    </button>
-                </div>
+    <!--===== SCROLL TOP =====-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevrons-up' id="scroll-top-icon"></i>
+    </a>
+
+    <!--===== HEADER =====-->
+    <header class="menu-header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="./assets/icons/inApp-icons/gt.svg" alt="gt-logo" id="gt-logo" aria-label="logo">
+                <span>GILEADE TEIXEIRA</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Sobre mim</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Principais Projetos</a></li>
+                    <li class="nav__item"><a href="#techs" class="nav__link">Tecnologias</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contato</a></li>
+                </ul>
             </div>
-        </header>
-        <section>
-            <div id="inicio">
-                <div class="welcome-area">
-                    <h2>Olá,</h2>
-                    <p>Meu nome é <strong>Gileade</strong>,</p>
-                    <p>e eu sou <strong>Desenvolvedor Web</strong>.</p>
-                    <div class="welcome-btns-area">
-                        <button id="btn-about">Sobre mim</button>
-                        <div class="welcome-socials">
-                            <a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/icons/social-icons/linkedin.svg" alt="linkedin-icon"></a>
-                            <a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/icons/social-icons/github.svg" alt="linkedin-icon"></a>
-                            <a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/icons/social-icons/frontedmentor.svg" alt="linkedin-icon"></a>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu' id="menu-icon"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== CONTENT =====-->
+    <main class="main-area">
+        <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+
+                    <div class="home__data">
+                        <span class="home__welcome">
+                            Bem-vindo! Meu nome é
+                        </span>
+                        <h1 class="home__name">Gileade,</h1>
+                        <span class="home__profession">
+                            e eu sou <strong>Desenvolvedor Web</strong>.
+                        </span>
+                    </div>
+
+                    <div class="home__links">
+                        <a href="#about" class="button" id="about-button">Sobre mim</a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/linkedin.svg" alt="linkedin-icon">
+                        </a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/github.svg" alt="github-icon">
+                        </a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/frontedmentor.svg" alt="frontedmentor-icon">
+                        </a>
+                    </div>
+
+                    <div class="home__img">
+                        <img src="./assets/personal/foto-rosto.svg" alt="">
+                    </div>
+                </div>
+            </section>
+        <!--===== ABOUT =====-->
+            <section class="about section container" id="about">
+                <span class="section-subtitle">Sobre mim</span>
+                <h2 class="section-title">Quem sou eu</h2>
+
+                <div class="about__container grid about__item">
+                    <div class="about__data grid">
+                        <p class="about__description">
+                            <span>
+                                Desde criança eu vivia cercado pela tecnologia.<br>
+                                Com o passar do tempo, começei a tomar gosto por Design Gráfico, e formatação textual.
+                            </span>
+                        </p>
+                        <p class="about__description">
+                            <span>
+                                Aos 17 anos, decidi que eu iria conquistar uma graduação tecnológica.<br>
+                                Após poucas tentativas, fui conduzido ao curso de Análise de Sistemas, onde conheci a programação.
+                            </span>
+                        </p>
+                        <p class="about__description">
+                            <span>
+                                Com 19 anos, ainda na faculdade, fui desafiado por um projeto mobile, gostei, e decidi “começar do zero”, iniciando estudos e práticas na área de Desenvolvimento Web.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <!--===== EDUCATION =====-->
+                <h2 class="section-title">
+                    Qualificação
+                    <i class='bx bx-help-circle help__button'></i>
+                </h2>
+
+                <div class="qualification__container grid about__item">
+                    <div class="qualification__content">
+                        <h2 class="qualification__title">
+                            <i class='bx bxs-briefcase qualification__title-icon'></i>
+                            Experência profissional
+                        </h2>
+
+                        <div class="grid" id="qualification-experience">
+                            <div class="qualification__data">
+                                <h3 class="qualification__area">
+                                    Função
+                                </h3>
+                                <div class="qualification__box">
+                                    <span class="qualification__work">
+                                        <i class='bx bxs-map education__icon'></i>
+                                        Empresa - Cidade
+                                    </span>
+
+                                    <span class="qualification__work">
+                                        <i class='bx bx-calendar education__icon'></i>
+                                        Ago 2019 - Dez 2021
+                                    </span>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="photo-area">
-                        <img src="./assets/personal/foto-rosto.svg" alt="my-photo" id="my-photo">
-                    </div>                   
+                    <div class="qualification__content">
+                        <h2 class="qualification__title">
+                            <i class='bx bxs-graduation qualification__title-icon'></i>
+                            Cursos
+                        </h2>
+
+                        <div class="grid" id="qualification-courses">
+                            
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        <!--===== PROJECTS =====-->
+
+        <!--===== TECHS =====-->
+
+        <!--===== CONTACT =====-->
+
+    </main>
 </body>
-</html>

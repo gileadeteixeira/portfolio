@@ -11,8 +11,7 @@
             "associated": ["HTML","CSS","JavaScript","TypeScript","Google", "MVC"],
             "about": "Framework front-end, em JavaScript, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Apache",
@@ -25,8 +24,7 @@
             "associated": ["Apache"],
             "about": "Servidor web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Atom",
@@ -39,8 +37,7 @@
             "associated": ["Visual Studio Code"],
             "about": "Editor de texto.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "AWS",
@@ -53,8 +50,7 @@
             "associated": ["Amazon"],
             "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Bootstrap",
@@ -67,8 +63,7 @@
             "associated": ["HTML","CSS","JavaScript","TypeScript"],
             "about": "Framework front-end para desenvolvimento de componentes web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "C",
@@ -81,8 +76,7 @@
             "associated": ["C++","C#"],
             "about": "Linguagem de programação.",
             "start": "Aug 15 2019",
-            "advance": null,
-            "mainDate": "Aug 15 2019"
+            "advance": null
         },
         {
             "alias": "C++",
@@ -95,8 +89,7 @@
             "associated": ["C", "C#"],
             "about": "Linguagem de programação.",
             "start": "Aug 15 2020",
-            "advance": null,
-            "mainDate": "Aug 15 2020"
+            "advance": null
         },
         {
             "alias": "C#",
@@ -109,8 +102,7 @@
             "associated": ["C","C++"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "CSS3",
@@ -123,8 +115,7 @@
             "associated": ["CSS", "Less", "Sass"],
             "about": "Linguagem de folhas de estilo.",
             "start": "Mar 12 2021",
-            "advance": "Jul 03 2021",
-            "mainDate": "Jul 03 2021"
+            "advance": "Jul 03 2021"
         },
         {
             "alias": "Dart",
@@ -137,8 +128,7 @@
             "associated": ["Google", "Flutter"],
             "about": "Linguagem front-end para desenvolvimento multipltataforma.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Django",
@@ -151,8 +141,7 @@
             "associated": ["Python"],
             "about": "Framework front-end, em Python, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Docker",
@@ -165,8 +154,7 @@
             "associated": ["Docker"],
             "about": "Plataforma para virtualização.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": ".NET Framework",
@@ -179,8 +167,7 @@
             "associated": ["C","C++","C#","Microsoft",".NET"],
             "about": "Plataforma única para desenvolvimento de aplicações.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": ".NET Core",
@@ -193,8 +180,7 @@
             "associated": ["C","C++","C#","Microsoft",".NET"],
             "about": "Framework, em C#, para desenvolvimento de aplicações.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Electron",
@@ -207,8 +193,7 @@
             "associated": ["HTML","CSS","JavaScript"],
             "about": "Framework para constução de aplicativos desktop.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Expo",
@@ -221,8 +206,7 @@
             "associated": ["JavaScript","TypeScript","React","React Native"],
             "about": "Framework para aplicações React.",
             "start": "Mar 21 2021",
-            "advance": null,
-            "mainDate": "Mar 21 2021"
+            "advance": null
         },
         {
             "alias": "Express",
@@ -235,8 +219,7 @@
             "associated": ["JavaScript","Node.js"],
             "about": "Framework back-end, em JavaScript, para construção de servidores web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Figma",
@@ -249,8 +232,7 @@
             "associated": ["Figma"],
             "about": "Ferramenta para design de interfaces e prototipagem de projetos.",
             "start": "Aug 05 2021",
-            "advance": null,
-            "mainDate": "Aug 05 2021"
+            "advance": null
         },
         {
             "alias": "Firebase",
@@ -263,8 +245,7 @@
             "associated": ["Google","Google Cloud","SQL"],
             "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
             "start": "May 11 2021",
-            "advance": null,
-            "mainDate": "May 11 2021"
+            "advance": null
         },
         {
             "alias": "Flutter",
@@ -277,8 +258,7 @@
             "associated": ["Dart","Google"],
             "about": "Framework front-end, em Dart, para desenvolvimento de aplicações nativas.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Git",
@@ -291,8 +271,7 @@
             "associated": ["GitHub","GitLab"],
             "about": "Sistema para controle de verões de arquivos.",
             "start": "Mar 15 2021",
-            "advance": "Jun 30 2021",
-            "mainDate": "Jun 30 2021"
+            "advance": "Jun 30 2021"
         },
         {
             "alias": "GitHub",
@@ -305,8 +284,7 @@
             "associated": ["Git","GitLab"],
             "about": "Plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git.",
             "start": "Mar 15 2021",
-            "advance": "Jun 30 2021",
-            "mainDate": "Jun 30 2021"
+            "advance": "Jun 30 2021"
         },
         {
             "alias": "GitLab",
@@ -319,8 +297,7 @@
             "associated": ["Git","GitHub"],
             "about": "Gerenciador de repositórios de software baseado em git.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Gitter",
@@ -333,8 +310,7 @@
             "associated": ["Git","GitHub", "GitLab"],
             "about": "Sistema de mensagem instantânea e sala de bate-papo, para desenvolvedores e usuários de repositórios GitLab e GitHub.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Go",
@@ -347,8 +323,7 @@
             "associated": ["Google"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Google Cloud",
@@ -361,8 +336,7 @@
             "associated": ["Google"],
             "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Heroku",
@@ -375,8 +349,7 @@
             "associated": ["Heroku"],
             "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "HTML 5",
@@ -389,8 +362,7 @@
             "associated": ["HTML"],
             "about": "Linguagem de marcação.",
             "start": "Feb 15 2021",
-            "advance": "Jun 30 2021",
-            "mainDate": "Jun 30 2021"
+            "advance": "Jun 30 2021"
         },
         {
             "alias": "Ionic",
@@ -403,8 +375,7 @@
             "associated": ["JavaScript","Angular","Vue.js", "React","React Native","Flutter"],
             "about": "Framework para desenvolvimento de aplicativos móveis.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Java",
@@ -417,8 +388,7 @@
             "associated": ["Java", "Oracle"],
             "about": "Linguagem de programação.",
             "start": "Sep 10 2020",
-            "advance": null,
-            "mainDate": "Sep 10 2020"
+            "advance": null
         },
         {
             "alias": "JavaScript",
@@ -431,8 +401,7 @@
             "associated": ["TypeScript"],
             "about": "Linguagem de programação.",
             "start": "Mar 21 2021",
-            "advance": "Jun 30 2021",
-            "mainDate": "Jun 30 2021"
+            "advance": "Jun 30 2021"
         },
         {
             "alias": "Jira",
@@ -445,8 +414,7 @@
             "associated": ["Trello"],
             "about": "Ferramenta para monitoramento de tarefas e projetos.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "jQuery",
@@ -459,8 +427,7 @@
             "associated": ["JavaScript", "TypeScript"],
             "about": "Biblioteca do JavaScript.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "JSON",
@@ -473,8 +440,7 @@
             "associated": ["JavaScript", "Firebase", "XML", "YAML"],
             "about": "Linguagem para intercâmbio de dados.",
             "start": "Jul 18 2021",
-            "advance": "Jul 18 2021",
-            "mainDate": "Jul 18 2021"
+            "advance": "Jul 18 2021"
         },
         {
             "alias": "Kotlin",
@@ -487,8 +453,7 @@
             "associated": ["JetBrains", "Android"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "LAMP",
@@ -501,8 +466,7 @@
             "associated": ["Linux", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
             "about": "Fornecedor, para Linux, do servidor local para testar e verificar o funcionamento de projetos web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Laravel",
@@ -515,8 +479,7 @@
             "associated": ["PHP", "MVC", "Vue.js"],
             "about": "Framework full-stack, em PHP, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Less",
@@ -529,8 +492,7 @@
             "associated": ["CSS", "Sass"],
             "about": "Linguagem de folhas de estilo.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "MAMP",
@@ -543,8 +505,7 @@
             "associated": ["macOS", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
             "about": "Fornecedor, para macOS, do servidor local para testar e verificar o funcionamento de projetos web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "MongoDB",
@@ -557,8 +518,7 @@
             "associated": ["SQL"],
             "about": "Software de banco de dados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "MySQL",
@@ -571,8 +531,7 @@
             "associated": ["SQL", "Oracle"],
             "about": "Software de banco de dados.",
             "start": "Mar 17 2020",
-            "advance": null,
-            "mainDate": "Mar 17 2020"
+            "advance": null
         },
         {
             "alias": "NestJS",
@@ -585,9 +544,7 @@
             "associated": ["JavaScript", "Node.js"],
             "about": "Framework back-end, em JavaScript, para construção de servidores web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "NetBeans",
             "fullName": "NetBeans IDE",
@@ -599,9 +556,7 @@
             "associated": ["Java","PHP","Oracle"],
             "about": "Ambiente de desenvolvimento integrado (IDE).",
             "start": "Sep 16 2020",
-            "advance": null,
-            "mainDate": "Sep 16 2020"
-        },
+            "advance": null        },
         {
             "alias": "Next.js",
             "fullName": "Next.js",
@@ -613,9 +568,7 @@
             "associated": ["JavaScript","TypeScript","React"],
             "about": "Framework, baseado em React, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Node.js",
             "fullName": "Node.js",
@@ -627,9 +580,7 @@
             "associated": ["JavaScript","TypeScript","React"],
             "about": "Software para executar JavaScript fora do navegador.",
             "start": "Mar 21 2021",
-            "advance": null,
-            "mainDate": "Mar 21 2021"
-        },
+            "advance": null        },
         {
             "alias": "NPM",
             "fullName": "NPM",
@@ -641,9 +592,7 @@
             "associated": ["Node.js", "Yarn"],
             "about": "Gerenciador de pacotes.",
             "start": "Mar 21 2021",
-            "advance": null,
-            "mainDate": "Mar 21 2021"
-        },
+            "advance": null        },
         {
             "alias": "Nuxt.js",
             "fullName": "Nuxt.js",
@@ -655,9 +604,7 @@
             "associated": ["Vue.js","Node.js"],
             "about": "Framework, baseado em Vue.js, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Objective-C",
             "fullName": "Objective-C",
@@ -669,9 +616,7 @@
             "associated": ["C","iOS"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "PHP",
             "fullName": "PHP",
@@ -683,9 +628,7 @@
             "associated": ["Laravel","LAMP","MAMP","WAMP","XAMPP"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "PostgreSQL",
             "fullName": "PostgreSQL",
@@ -697,9 +640,7 @@
             "associated": ["SQL"],
             "about": "Software de banco de dados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Python",
             "fullName": "Python",
@@ -711,9 +652,7 @@
             "associated": ["Django"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Rails",
             "fullName": "Rails",
@@ -725,9 +664,7 @@
             "associated": ["Ruby", "Ruby on Rails", "MVC"],
             "about": "Framework back-end, em Ruby, para desenvolvimento web.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "React",
             "fullName": "React",
@@ -739,9 +676,7 @@
             "associated": ["JavaScript","TypeScript","React Native"],
             "about": "Biblioteca do JavaScript para desenvolvimento web.",
             "start": "Apr 05 2021",
-            "advance": null,
-            "mainDate": "Apr 05 2021"
-        },
+            "advance": null        },
         {
             "alias": "React Native",
             "fullName": "React Native",
@@ -753,9 +688,7 @@
             "associated": ["JavaScript","TypeScript","React"],
             "about": "Biblioteca do JavaScript para desenvolvimento mobile.",
             "start": "Apr 05 2021",
-            "advance": null,
-            "mainDate": "Apr 05 2021"
-        },
+            "advance": null        },
         {
             "alias": "Redux",
             "fullName": "Redux",
@@ -767,9 +700,7 @@
             "associated": ["JavaScript","TypeScript","React", "Angular"],
             "about": "Biblioteca do JavaScript para gerenciamento de estados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Ruby",
             "fullName": "Ruby",
@@ -781,9 +712,7 @@
             "associated": ["Rails"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Sass",
             "fullName": "Sass",
@@ -795,9 +724,7 @@
             "associated": ["CSS", "Less"],
             "about": "Linguagem de folhas de estilo.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Spring",
             "fullName": "Spring Framework",
@@ -809,9 +736,7 @@
             "associated": ["Java"],
             "about": "Framework, em Java, para desenvolvimento de aplicações.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "SQL Server",
             "fullName": "Microsoft SQL Server",
@@ -823,9 +748,7 @@
             "associated": ["SQL", "Microsoft"],
             "about": "Software de banco de dados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
-        },
+            "advance": null        },
         {
             "alias": "Swift",
             "fullName": "Swift",
@@ -851,8 +774,7 @@
             "associated": ["CSS", "Less", "Sass"],
             "about": "Framework CSS para desevolvimento de interfaces.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Trello",
@@ -865,8 +787,7 @@
             "associated": ["Jira"],
             "about": "Ferramenta para monitoramento de tarefas e projetos.",
             "start": "Mar 19 2021",
-            "advance": null,
-            "mainDate": "Mar 19 2021"
+            "advance": null
         },
         {
             "alias": "TypeScript",
@@ -879,8 +800,7 @@
             "associated": ["JavaScript","Microsoft"],
             "about": "Linguagem de programação.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Visual Studio",
@@ -893,8 +813,7 @@
             "associated": ["C","C++","C#","Microsoft",".NET"],
             "about": "Ambiente de desenvolvimento integrado (IDE).",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Vue.js",
@@ -907,8 +826,7 @@
             "associated": ["JavaScript","TypeScript","Angular","React", "Node.js", "Nuxt.js"],
             "about": "Framework, em JavaScript, para desenvolvimento de interfaces e aplicativos single-page.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "WAMP",
@@ -921,8 +839,7 @@
             "associated": ["Windows", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
             "about": "Fornecedor, para Windows, do servidor local para testar e verificar o funcionamento de projetos web.",
             "start": "Mar 15 2020",
-            "advance": null,
-            "mainDate": "Mar 15 2020"
+            "advance": null
         },
         {
             "alias": "WordPress",
@@ -935,8 +852,7 @@
             "associated": ["MySQl", "PHP"],
             "about": "Software para criação de sites.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "XAMPP",
@@ -949,8 +865,7 @@
             "associated": ["Windows", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
             "about": "Fornecedor, multiplataforma, do servidor local para testar e verificar o funcionamento de projetos web.",
             "start": "Mar 15 2020",
-            "advance": null,
-            "mainDate": "Mar 15 2020"
+            "advance": null
         },
         {
             "alias": "XML",
@@ -963,8 +878,7 @@
             "associated": ["JSON", "HTML", "YAML"],
             "about": "Linguagem para intercâmbio de dados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "YAML",
@@ -977,8 +891,7 @@
             "associated": ["JSON", "HTML", "XML"],
             "about": "Linguagem para intercâmbio de dados.",
             "start": null,
-            "advance": null,
-            "mainDate": null
+            "advance": null
         },
         {
             "alias": "Yarn",
@@ -991,8 +904,7 @@
             "associated": ["Node.js", "NPM"],
             "about": "Gerenciador de pacotes.",
             "start": "Mar 22 2021",
-            "advance": null,
-            "mainDate": "Mar 22 2021"
+            "advance": null
         }
     ]
 }

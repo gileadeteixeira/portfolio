@@ -1,6 +1,8 @@
-const tools = require('../../databases/tools.json').tools;
+import {tools} from '../../databases/tools.js'
 
-const sortTools = {
+//const tools = require('../../databases/tools.json').tools;
+
+export const sortTools = {
     byGrowingAlphabetical : ()=>{//A-Z
         return 1;
     },
@@ -18,7 +20,7 @@ const sortTools = {
     }
 }
 
-const editTools = {
+export const editTools = {
     loadAllTools : ()=>{
         return tools.map(tool=>{
             return editTools.setLongDate(tool);
@@ -29,12 +31,12 @@ const editTools = {
         let mainDate = null;
         if (tool.advance != null) {mainDate = tool.advance}
         else if (tool.start != null) {mainDate = tool.start};
-        return mainDate != null ? {...tool, mainDate: new Date(Date.parse(mainDate))} : null;
+        return mainDate != null ? {...tool, mainDate: new Date(mainDate)} : {...tool, mainDate: null};
     },
 
     setNotNull : (tool)=>{
         if (tool != null) {
-            return tool.mainDate != null;
+            return tool.start != null;
         };
     },
 
@@ -62,8 +64,8 @@ const editTools = {
                 result = sortType();
                 break;
             case "evolution":
-                let date1 = new Date(toolA.mainDate);
-                let date2 = new Date(toolB.mainDate);
+                let date1 = toolA.advance != null ? new Date(toolA.advance) : new Date(toolA.start);
+                let date2 = toolB.advance != null ? new Date(toolB.advance) : new Date(toolB.start);
                 result = sortType(date1, date2);
                 break;
             default:
@@ -73,11 +75,12 @@ const editTools = {
     },
 
     setLongDate : (tool)=>{
-        if (tool.mainDate!=null) {
-            longDate = new Date(Date.parse(tool.mainDate)).toLocaleString('pt-BR',{dateStyle: 'long'});
-            tool.mainDate = longDate;
+        let tollEdited  = editTools.setMainDate(tool);
+        if (tollEdited.mainDate!=null) {
+            longDate = tollEdited.mainDate.toLocaleString('pt-BR',{dateStyle: 'long'});
+            tollEdited.mainDate = longDate;
         }
-        return tool;
+        return tollEdited;
     },
 
     myTools : (sortType = sortTools.byGrowingAlphabetical) =>{//default A-Z
@@ -94,7 +97,7 @@ const editTools = {
     }
 }
 
-/*console.log(
+/*console.table(
     editTools.myTools(sortTools.byDecreasingEvolution)
     //editTools.loadAllTools()
 );*/
