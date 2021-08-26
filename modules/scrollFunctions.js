@@ -33,13 +33,12 @@ export const sectionOnScroll = (sections)=>{
 }
 
 
-export const scrollToTop = (scrollerTop, resetColor, projectColors)=>{
+export const scrollToTop = (scrollerTop)=>{
     if (window.pageYOffset >= 200) {
         scrollerTop.classList.add('scroll-top-open');
         scrollerTop.addEventListener("click", (event)=>{
             event.preventDefault();
             scrollToPosition(0);
-            resetColor(scrollerTop, projectColors.black);
         });
     }
     else {

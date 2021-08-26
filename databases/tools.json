@@ -289,7 +289,7 @@
         {
             "alias": "GitLab",
             "fullName": "GitLab",
-            "src": "gitlub",
+            "src": "gitlab",
             "type": "software",
             "area": "multi-platform",
             "stack": null,
@@ -328,7 +328,7 @@
         {
             "alias": "Google Cloud",
             "fullName": "Google Cloud Platform",
-            "src": "goooglecloud",
+            "src": "googlecloud",
             "type": "cloud",
             "area": "web",
             "stack": "back-end",
@@ -883,7 +883,7 @@
         {
             "alias": "YAML",
             "fullName": "YAML",
-            "src": "yml",
+            "src": "yaml",
             "type": "data-interchange language",
             "area": null,
             "stack": "back-end",

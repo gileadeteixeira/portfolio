@@ -28,22 +28,26 @@ export const showRightMenu = (generateModal, container, event, scrollOnClick) =>
     );
 };
 
-export const showMenu = (toggleId , navId) => {
+export const showMenu = (toggleId , navId, navListClass) => {
     const toggle = document.getElementById(toggleId);
     const nav = document.getElementById(navId);
+    const list = document.querySelector(navListClass);
+    const close = () =>{
+        const menuIcon = document.getElementById('menu-icon');
+        if (menuIcon.className == 'bx bx-menu') {
+            nav.classList.add('menu-open');
+            menuIcon.className = 'bx bx-x';            
+        }
+        else {
+            nav.classList.remove('menu-open');
+            menuIcon.className = 'bx bx-menu';
+        }
+    }
 
     if (toggle && nav) {
-        toggle.addEventListener("click", ()=>{
-            const menuIcon = document.getElementById('menu-icon');
-            if (menuIcon.className == 'bx bx-menu') {
-                nav.classList.add('menu-open');
-                menuIcon.className = 'bx bx-x';            
-            }
-            else {
-                nav.classList.remove('menu-open');
-                menuIcon.className = 'bx bx-menu';
-            }
-        });
+        toggle.addEventListener("click", () => close());
+        nav.addEventListener("click", () => close());
+        list.addEventListener("click", () => close());
     }
 }
 
@@ -57,8 +61,8 @@ export const loadLinksActions = (scrollOnClick, scrollToPosition)=>{
         else{
             scrollOnClick(event);
         }
-        const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
         navMenu.classList.remove('menu-open');
         menuIcon.className = 'bx bx-menu';
     }

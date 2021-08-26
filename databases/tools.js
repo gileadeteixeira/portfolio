@@ -288,7 +288,7 @@ export const tools = [
     {
         "alias": "GitLab",
         "fullName": "GitLab",
-        "src": "gitlub",
+        "src": "gitlab",
         "type": "software",
         "area": "multi-platform",
         "stack": null,
@@ -327,7 +327,7 @@ export const tools = [
     {
         "alias": "Google Cloud",
         "fullName": "Google Cloud Platform",
-        "src": "goooglecloud",
+        "src": "googlecloud",
         "type": "cloud",
         "area": "web",
         "stack": "back-end",
@@ -621,8 +621,7 @@ export const tools = [
         "associated": ["C","iOS"],
         "about": "Linguagem de programação.",
         "start": null,
-        "advance": null,
-        "mainDate": null
+        "advance": null
     },
     {
         "alias": "PHP",
@@ -705,7 +704,7 @@ export const tools = [
     {
         "alias": "Redux",
         "fullName": "Redux",
-        "src": "reactnative",
+        "src": "redux",
         "type": "library",
         "area": "multi-platform",
         "stack": "back-end",
@@ -848,7 +847,7 @@ export const tools = [
     {
         "alias": "WAMP",
         "fullName": "WAMP",
-        "src": "mamp",
+        "src": "wamp",
         "type": "software compilation",
         "area": "server",
         "stack": "back-end",
@@ -900,7 +899,7 @@ export const tools = [
     {
         "alias": "YAML",
         "fullName": "YAML",
-        "src": "yml",
+        "src": "yaml",
         "type": "data-interchange language",
         "area": null,
         "stack": "back-end",

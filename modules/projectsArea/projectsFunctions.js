@@ -1,57 +1,91 @@
 import {works} from '../../databases/works.js';
 
-export const showModalProject = (container, event, project)=>{
+export const createModalProjects = (type, project = null )=>{
+    if (type == 'help') {
+        return `
+        <div class="custom-modal__box">
+            <h2 class="custom-modal__title">
+                Ajuda
+                <i class='bx bx-x custom-modal__icon'></i>
+            </h2>
+            <div class="custom-modal__data">
+                <span class="custom-modal__help-text">
+                    Clique ou toque em um projeto, e ele será exibido no seguinte modelo:
+                </span>
+                <a href="./assets/models/project-model-mobile.svg" target="_blank" rel="noopener noreferrer">
+                    <img src="./assets/models/project-model-mobile.svg" alt="model-image" class="custom-modal__model">
+                </a>
+                <span class="custom-modal__help-text">
+                    QR Code: Clique, toque ou aponte a câmera para acessar o repositório.
+                </span>
+            </div>
+        </div>
+        `
+    } else if (type == 'info') {
+        return `
+        <div class="custom-modal__box">
+            <h2 class="custom-modal__title">
+                ${project.name}
+                <i class='bx bx-x custom-modal__icon'></i>
+            </h2>
+            <div class="custom-modal__data">
+                <a href="./assets/works/screenshots/png/${project.screenshot}.png" target="_blank" rel="noopener noreferrer">
+                    <img src="./assets/works/screenshots/png/${project.screenshot}.png" alt="${project.screenshot}-screenshot" class="custom-modal__screenshot">
+                </a>
+                <span class="custom-modal__description">
+                    ${project.about}
+                </span>
+                <a href="${project.url}" target="_blank" rel="noopener noreferrer">
+                    <img src="./assets/works/qrcodes/svg/${project.qrcode}.svg" alt="${project.qrcode}-qrcode" class="custom-modal__qrcode">
+                </a>
+            </div>
+        </div>
+        `
+    }
+}
+
+export const showModalProjects = (type, section, event, project = null)=>{
     event.preventDefault();
     const newModal = document.createElement("div");
-    newModal.classList.add("modal-interactive");
-    newModal.innerHTML = `
-    <div class="modal-info-area">
-        <button id="modal-btn-close">
-            <img src="./assets/icons/inApp-icons/close.svg" alt="close-icon" id="close-icon">
-        </button>
-        <div class="modal-info">
-            <h3>${project.name}</h3>
-            <img src="./assets/works/screenshots/png/${project.screenshot}.png" alt="" class="screenshot">
-            <p>${project.about}</p>
-            <a href="${project.url}" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/works/qrcodes/svg/${project.qrcode}.svg" alt="" class="qrcode">
-            </a>
-        </div>        
-    </div>
-    `;
-    container.appendChild(newModal);
-    const interactiveModalBtnClose = document.querySelector('#modal-btn-close');
+    newModal.classList.add("custom-modal__container");
+    newModal.innerHTML = createModalProjects(type, project);
+    newModal.style.transition = "all 0.3s";
+    section.appendChild(newModal);
 
-    interactiveModalBtnClose.addEventListener("click", (event)=>{
-        event.preventDefault();
-        let modal = document.querySelector('.modal-interactive');
-        container.removeChild(modal);
+    const modalBackground = document.querySelector('.custom-modal__container');
+    const customModalBtnClose = document.querySelector('.custom-modal__icon');
 
-    });
-};
+    const close = () =>{
+        section.removeChild(modalBackground);
+    }
 
-export const loadProjects = (container, mainProjects)=>{
-    const projectsArea = document.createElement('div');
-    projectsArea.classList.add('projects-area');
-    const ul = document.createElement('ul');
+    //modalBackground.addEventListener("click", () => close());
+    customModalBtnClose.addEventListener("click", () => close());
+}
+
+export const loadProjects = ()=>{
+    const projectsContent = document.querySelector('section#projects .custom-list__content');
+    //console.log(projectsContent);
     works.forEach(
         (project)=>{
-            const li = document.createElement('li');
-            li.innerHTML = `
-            <div class="project-item" id="${project.url}">
-                <div class="qr-circle">
-                    <img src="./assets/icons/inApp-icons/qricon.svg" alt="">
-                </div>
-                <p>${project.name}</p>
-            </div>
-            `
-            li.addEventListener("click", (event)=>{
-                showModalProject(container, event, project);
-            });
+            const projectsBox = document.createElement('div');
+            projectsBox.classList.add('custom-list__box');
+            projectsBox.innerHTML = `
+            <h2 class="custom-list__title">
+                <i class='bx bx-qr custom-list__title-icon'></i>
+                ${project.name}
+            </h2>
+            `;
+            projectsContent.appendChild(projectsBox);
 
-            ul.appendChild(li);
+            projectsBox.addEventListener("click", (event)=>{
+                const section = document.querySelector('#projects');
+                showModalProjects('info', section, event, project);
+            })
         }
     );
-    projectsArea.appendChild(ul);
-    mainProjects.appendChild(projectsArea);
 };
+
+export const helpModal = ()=>{
+
+}
