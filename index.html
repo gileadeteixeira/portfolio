@@ -172,30 +172,27 @@
                     <i class='bx bx-help-circle help__button'></i>
                 </h2>
 
-                <div class="filter-bar grid">
-                    <div class="filter-bar__search-box">
-                        <i class='bx bx-search'></i>
-                        <input type="text" class="input" id="input__search-by-name" placeholder="Pesquisar por nome...">
+                <div class="filter-bar" id="filter-bar">
+                    <div class="filter-bar__box filter-bar__input-box">
+                        <i class='bx bx-search field-icon'></i>
+                        <input type="text" class="field input-search" id="tech-search-by-name" placeholder="Pesquisar por nome...">
                     </div>
-                    <div class="filter-bar__search-box">
-                        <input type="text" class="input" id="input__search-by-category" placeholder="Pesquisar por categoria...">
-                        <i class='bx bx-chevron-down' ></i>
+                    <div class="filter-bar__box filter-bar__selector-box" id="tech-search-by-category">
+                        <span class="field selector-search" >
+                            Pesquisar por categoria...
+                        </span>
+                        <i class='bx bx-chevron-up field-icon'></i>
                     </div>
-                    <button class="button interactive" id="filter-bar__button">
-                        Resetar
-                    </button>
+                    <div class="filter-bar__button-box filter-bar__box">
+                        <i class='bx bx-list-plus button-icon' id="tech-button-show-more"></i>
+                        <i class='bx bx-list-minus button-icon' id="tech-button-show-less"></i>
+                        <i class='bx bx-list-ol button-icon' id="tech-button-order"></i>
+                        <i class='bx bx-refresh button-icon' id="tech-button-reset"></i>
+                    </div>
                 </div>
 
                 <div class="custom-list__container grid">
                     <div class="custom-list__content">
-                    </div>
-                    <div class="custom-list__buttons-box">
-                        <button class="button interactive" id="tech-button-show-more">
-                            Mostrar mais
-                        </button>
-                        <button class="button interactive" id="tech-button-show-less">
-                            Mostrar menos
-                        </button>
                     </div>
                 </div>
             </section>            

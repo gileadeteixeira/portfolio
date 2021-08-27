@@ -11,14 +11,15 @@ const aboutBtn = document.getElementById('about-button');
 
 const showMoreButton = document.getElementById('tech-button-show-more');
 const showLessButton = document.getElementById('tech-button-show-less');
+const searchByCategoryDiv = document.getElementById('tech-search-by-category');
 
-import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition} from './modules/scrollFunctions.js';
+import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed} from './modules/scrollFunctions.js';
 import {showRightMenu, loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
 import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
 import {generateModal, showHelp} from './modules/modalFunctions.js';
 import {projectColors} from './assets/projectInfo.js';
 import {loadEducation} from './modules/aboutArea/components/education.js';
-import {loadTools, editTools, sortTools, changeVisibility} from './modules/toolsArea/toolsFunctions.js'
+import {loadTools, editTools, sortTools, showModalPicker} from './modules/toolsArea/toolsFunctions.js'
 
 showMenu('nav-toggle','nav-menu','.nav__list');
 loadLinksActions(scrollOnClick, scrollToPosition);
@@ -34,11 +35,11 @@ loadTools();
 
 showMoreButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    changeVisibility();
+    loadTools();
 })
 showLessButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    changeVisibility('less');
+    loadTools('less');
 })
 
 const resetColor = (element, color)=>{
@@ -49,38 +50,17 @@ aboutBtn.addEventListener("click", (event)=>{
     scrollOnClick(event);
 });
 
+const teste2 = document.getElementById('filter-bar');
+//console.log(teste.offsetTop + teste.offsetHeight, teste2.offsetWidth)
+
 window.addEventListener("scroll", () => {
     sectionOnScroll(sections);
     scrollToTop(scrollerTop, projectColors);
+    filterBarFixed();
+    //console.log(searchByCategoryDiv.offsetTop + searchByCategoryDiv.offsetHeight, teste2.offsetWidth)    
 });
 
-/*
-menuBtn.addEventListener("click", (event) => showRightMenu(generateModal, container, event, scrollOnClick));
-aboutBtn.addEventListener("click", (event) => scrollOnClick(event));
-
-btnsHelp.forEach(
-    (btn)=>{
-        let type = btn.id.replace("btn-help-", "");
-        btn.addEventListener("click", (event)=>{
-            showHelp(type, container, event);
-        })
-    }
-);
-*/
-/*(()=>{
-    menuItens.forEach(
-        (item) => {
-            item.addEventListener('click', (event)=>{
-                scrollOnClick(event);
-            });
-        }
-    );
-
-    aboutTexts.forEach(
-        (p, key)=>{
-            p.style.textAlign = key % 2 == 0 ? 'left' : 'right'            
-        }
-    );
-
-    loadProjects(container, mainProjects);
-})();*/
+searchByCategoryDiv.addEventListener("click", (event)=>{
+    event.preventDefault();
+    showModalPicker();
+})

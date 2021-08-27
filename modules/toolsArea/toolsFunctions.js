@@ -1,4 +1,17 @@
-import {tools} from '../../databases/tools.js'
+import {tools} from '../../databases/tools.js';
+
+        /*
+        Keys:
+            type: "framework"; "server"; "text editor"; "cloud"; "programming language"; "stylesheet language"; "software"; "markup language"; "library"; "data-interchange language" "software compilation";
+
+            stack: null; "front-end"; "back-end"; "full-stack";
+
+            area: null; "web"; "mobile"; "logic"; "multi-platform", "server", "package manager".
+
+            status: null; "utilizada"; "aprofundada"
+        */
+
+import {filters} from '../../databases/filters.js';
 
 //const tools = require('../../databases/tools.json').tools;
 
@@ -114,16 +127,6 @@ export const editTools = {
         if (tool != null) {
             return tool[key] == value;
         };
-        /*
-        Keys:
-            type: "framework"; "server"; "text editor"; "cloud"; "programming language"; "stylesheet language"; "software"; "markup language"; "library"; "data-interchange language" "software compilation";
-
-            stack: null; "front-end"; "back-end"; "full-stack";
-
-            area: null; "web"; "mobile"; "desktop"; "logic"; "multi-platform", "server", "package manager".
-
-            status: null; "utilizada"; "aprofundada"
-        */
     },
     
     setSort : (toolA, toolB, sortType)=>{
@@ -167,70 +170,60 @@ export const editTools = {
     }
 }
 
-export const loadTools = (customTools = editTools.loadAllTools())=>{
+export const loadTools = (action = 'more', reset = false, customTools = editTools.loadAllTools())=>{
     const techsContent = document.querySelector('section#techs .custom-list__content');
-    customTools.forEach(
-        (tech,index)=>{
-            const techsBox = document.createElement('div');
-            techsBox.classList.add('custom-list__box');
-            techsBox.innerHTML = `
-            <h2 class="custom-list__title tech-title">
-                <div class="custom-list__title-box">
-                    <div class="custom-list__title-image-box">
-                        <img src="./assets/icons/tools-icons/${tech.src}.svg" alt="${tech.src}-icon" class="custom-list__title-image">
-                    </div>
-                    ${tech.alias}
-                </div>
-                <i class='bx bxs-circle custom-list__indicator-circle' style="color: ${setStatusIndicator(tech)};"></i>
-            </h2>
-            `;
-            techsContent.appendChild(techsBox);            
-            techsBox.addEventListener("click", (event)=>{
-                const section = document.querySelector('#techs');
-                showModalTechs('info', section, event, tech);
-            })
+    let start = techsContent.children.length;
+    let end = start + 9;
+    if (reset) {
+        for (let index = start-1; index >= 0; index--) {
+            techsContent.removeChild(techsContent.children[index]);        
         }
-    );
-    
-    const divs = document.querySelectorAll('section#techs .custom-list__box');
-    divs.forEach((div) => {
-        div.style.display = 'none';
-        div.style.visibility = 'hidden';
-        div.style.transition = '0.3s';
-        //console.log(div.style.visibility);
-    });
-    changeVisibility();
+    }
+    action == 'more'
+        ? showMoreTechs(customTools, techsContent, start, end)
+        : (action == 'less' && showLessTechs(techsContent, start));    
 }
 
-export const changeVisibility = (action = 'more')=>{
-    const divs = document.querySelectorAll('section#techs .custom-list__box'); 
-    let end = 0;
-    divs.forEach((div,key)=>{
-        if (div.style.visibility == 'visible') {
-            end = key+1;
-        }
-    })
-    //console.log(end, divs.length);
-
-    if (action == 'more') {
-        if (end == divs.length) {
-            alert('Todas as Tecnologias já estão em exibição.');         
-        }
-        else{
-            for (let i = end; i < end+9 && i < divs.length ; i++) {
-                divs[i].style.display = 'block';
-                divs[i].style.visibility = 'visible';
+export const showMoreTechs = (customTools, techsContent, start, end)=>{
+    if (start < customTools.length) {
+        for (let index = start; index < end; index++) {
+            if (customTools[index] != null) {
+                const tech = customTools[index];
+                const techsBox = document.createElement('div');
+                techsBox.classList.add('custom-list__box');
+                techsBox.innerHTML = `
+                <h2 class="custom-list__title tech-title">
+                    <div class="custom-list__title-box">
+                        <div class="custom-list__title-image-box">
+                            <img src="./assets/icons/tools-icons/${tech.src}.svg" alt="${tech.src}-icon" class="custom-list__title-image">
+                        </div>
+                        ${tech.alias}
+                    </div>
+                    <i class='bx bxs-circle custom-list__indicator-circle' style="color: ${setStatusIndicator(tech)};"></i>
+                </h2>
+                `;
+                techsContent.appendChild(techsBox);            
+                techsBox.addEventListener("click", (event)=>{
+                    const section = document.querySelector('#techs');
+                    showModalTechs('info', section, event, tech);
+                })
             }
         }
-    } else if (action == 'less'){
-        if (end <= 9) {
-            alert('Impossível exibir menos.');
-        } else {
-            for (let i = end % 3 == 0 ? end-9 : end-8; i < end; i++) {
-                divs[i].style.display = 'none';
-                divs[i].style.visibility = 'hidden';
-            }            
+    }
+    else{
+        alert('Impossível exibir mais.');
+    }
+}
+
+export const showLessTechs = (techsContent, start)=>{
+    if (start > 9) {
+        const number = start % 3 == 0 ? 9 : 8;
+        for (let index = start-1; index >= start - number; index--) {
+            techsContent.removeChild(techsContent.children[index]);            
         }
+    }
+    else{
+        alert('Impossível exibir menos.');
     }
 }
 
@@ -257,3 +250,73 @@ export const showModalTechs = (type, section, event, project = null)=>{
     editTools.myTools(sortTools.byDecreasingEvolution)
     //editTools.loadAllTools()
 );*/
+
+export const showModalPicker = ()=>{
+    modalGenerator();
+    filters.forEach((property)=>selectsGenerator(property));
+    const closeButton = document.querySelector(".field-options__close-icon");
+    closeButton.addEventListener("click", () => closeModal());
+}
+
+export const modalGenerator = ()=>{
+    const filterBar = document.querySelector('#filter-bar');
+    const modalPicker = document.createElement('div');
+    modalPicker.classList.add('custom-modal__container');
+    modalPicker.id = 'modal-picker';
+    modalPicker.innerHTML = `
+    <div class="custom-modal__box field-options__box">
+        <i class='bx bx-x custom-modal__icon field-options__close-icon'></i>
+        <div class="field-options__data"></div>
+        <div class="field-options__ok-button-box">
+            <button class="button interactive" id="field-options__ok-button">OK</button>
+        </div>
+    </div>
+    `;
+    filterBar.appendChild(modalPicker);
+}
+
+export const selectsGenerator = (property)=>{
+    const modalPickerData = document.querySelector('.field-options__data');
+    const fieldOption = document.createElement('div');
+    fieldOption.classList.add('field__option');
+    fieldOption.innerHTML=`
+    <label for="${property.id}">${property.label}</label>    
+    <select id="${property.id}"></select>
+    `;
+    modalPickerData.appendChild(fieldOption);
+    optionsGenerator(property);
+    selectOption(property);
+}
+
+export const optionsGenerator = (property)=>{
+    const select = document.querySelector(`.field-options__data select#${property.id}`);
+    const optionDefault = document.createElement('option');
+    optionDefault.value = "";
+    optionDefault.innerHTML = "Nenhum";
+    select.appendChild(optionDefault);
+    property.itens.forEach((item)=>{
+        const option = document.createElement('option');
+        option.value = `${item.key}`;
+        option.innerHTML = `${item.value}`;
+        select.appendChild(option);
+    })
+}
+
+export const selectOption = (property)=>{
+    const select = document.querySelector(`.field-options__data select#${property.id}`);
+    select.addEventListener('change', ()=>{
+        const allSelects = document.querySelectorAll(`.field-options__data select`);
+        allSelects.forEach((slct)=>{
+            if (slct.id != property.id) {
+                slct.selectedIndex = 0;
+                slct.value = "";
+            }
+        })
+    })
+}
+
+export const closeModal = ()=>{
+    const filterBar = document.querySelector('#filter-bar');
+    const modalPicker = document.querySelector('#modal-picker');
+    filterBar.removeChild(modalPicker);
+}

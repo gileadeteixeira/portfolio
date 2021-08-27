@@ -32,6 +32,31 @@ export const sectionOnScroll = (sections)=>{
     });
 }
 
+export const filterBarFixed = ()=>{
+    const scrollY = window.pageYOffset;
+    const headerHeight = document.querySelector('#header').offsetHeight;
+    const sectionTechs = document.querySelector('#techs');
+    const filterBar = document.querySelector('#filter-bar');
+    const filterBarOffsetTop = filterBar.offsetTop;
+    const filterBarHeight = filterBar.offsetHeight;
+    const sectionTechOffsetBottom = sectionTechs.offsetTop + sectionTechs.offsetHeight;
+    const previousElementOffsetOp = filterBar.previousElementSibling.offsetTop;
+    const nextElement = filterBar.nextElementSibling;
+
+    
+    //console.log(scrollY, previousElementOffsetOp + headerHeight)
+    if (scrollY >= filterBarOffsetTop - headerHeight && scrollY >= previousElementOffsetOp + headerHeight) {
+        filterBar.classList.add('fixed');
+        //console.log(filterBarOffsetTop + headerHeight)
+        nextElement.style.marginTop = `calc(${filterBarHeight}px + 1.5em)`;
+    } else {
+        filterBar.classList.remove('fixed');
+        nextElement.style.marginTop = '0';
+    }
+
+    //console.log(scrollY, sectionTechOffsetBottom);
+}
+
 
 export const scrollToTop = (scrollerTop)=>{
     if (window.pageYOffset >= 200) {
