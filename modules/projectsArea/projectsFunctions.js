@@ -52,8 +52,8 @@ export const showModalProjects = (type, section, event, project = null)=>{
     newModal.style.transition = "all 0.3s";
     section.appendChild(newModal);
 
-    const modalBackground = document.querySelector('.custom-modal__container');
-    const customModalBtnClose = document.querySelector('.custom-modal__icon');
+    const modalBackground = document.querySelector('section#projects .custom-modal__container');
+    const customModalBtnClose = document.querySelector('section#projects .custom-modal__icon');
 
     const close = () =>{
         section.removeChild(modalBackground);
@@ -79,7 +79,7 @@ export const loadProjects = ()=>{
             projectsContent.appendChild(projectsBox);
 
             projectsBox.addEventListener("click", (event)=>{
-                const section = document.querySelector('#projects');
+                const section = document.querySelector('section#projects');
                 showModalProjects('info', section, event, project);
             })
         }

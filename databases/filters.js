@@ -1,10 +1,10 @@
 export const filters = [
     {
-        "id":"area",
+        "id":"area-selector", //optionSelected.key
         "label":"Áreas de atuação",
         "itens": [
             {
-                "key":"mobile",
+                "key":"mobile", //optionSelected.value
                 "value": "Dispositivos móveis"
             },
             {
@@ -20,10 +20,6 @@ export const filters = [
                 "value": "Multiplataforma"
             },
             {
-                "key": null,
-                "value": "Outras"
-            },
-            {
                 "key":"server",
                 "value": "Servidores"
             },
@@ -31,10 +27,14 @@ export const filters = [
                 "key":"web",
                 "value": "Web"
             },
+            {
+                "key": null,
+                "value": "Outras"
+            },
         ],
     },
     {
-        "id":"stack",
+        "id":"stack-selector",
         "label":"Stacks",
         "itens": [
             {
@@ -56,7 +56,7 @@ export const filters = [
         ],
     },
     {
-        "id":"type",
+        "id":"type-selector",
         "label":"Tipos",
         "itens": [
             {

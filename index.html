@@ -173,15 +173,17 @@
                 </h2>
 
                 <div class="filter-bar" id="filter-bar">
-                    <div class="filter-bar__box filter-bar__input-box">
-                        <i class='bx bx-search field-icon'></i>
-                        <input type="text" class="field input-search" id="tech-search-by-name" placeholder="Pesquisar por nome...">
-                    </div>
-                    <div class="filter-bar__box filter-bar__selector-box" id="tech-search-by-category">
-                        <span class="field selector-search" >
-                            Pesquisar por categoria...
-                        </span>
-                        <i class='bx bx-chevron-up field-icon'></i>
+                    <div class="fields-box">
+                        <div class="filter-bar__box filter-bar__input-box">
+                            <i class='bx bx-search field-icon'></i>
+                            <input type="text" class="field input-search" id="tech-search-by-name" placeholder="Pesquisar por nome...">
+                        </div>
+                        <div class="filter-bar__box filter-bar__selector-box" id="tech-search-by-category">
+                            <span class="field selector-search" >
+                                Pesquisar por categoria...
+                            </span>
+                            <i class='bx bx-chevron-down field-icon'></i>
+                        </div>
                     </div>
                     <div class="filter-bar__button-box filter-bar__box">
                         <i class='bx bx-list-plus button-icon' id="tech-button-show-more"></i>
@@ -192,7 +194,7 @@
                 </div>
 
                 <div class="custom-list__container grid">
-                    <div class="custom-list__content">
+                    <div class="custom-list__content" base="default">
                     </div>
                 </div>
             </section>            
