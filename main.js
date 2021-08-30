@@ -1,13 +1,10 @@
-const container = document.querySelector('.container');
-const menuBtn = document.querySelector('.nav__toggle');
-const mainProjects = document.querySelector('div#principais-projetos');
-const menuItens = document.querySelectorAll('nav ul li');
-const aboutTexts = document.querySelectorAll('div.about-texts p');
-const btnsHelp = document.querySelectorAll('.help__button');
+const homeAboutButton = document.querySelector('section#home #about-button');
+const scrollerTop = document.querySelector('#scroll-top');
 
 const sections = document.querySelectorAll('section[id]');
-const scrollerTop = document.getElementById('scroll-top');
-const aboutBtn = document.getElementById('about-button');
+
+const projectsHelpButton = document.querySelector('section#projects #help__projects');
+const techsHelpButton = document.querySelector('section#techs #help__techs');
 
 const techsListContent = document.querySelector('section#techs .custom-list__content');
 
@@ -19,26 +16,30 @@ const showLessButton = document.querySelector('section#techs #tech-button-show-l
 const orderButton = document.querySelector('section#techs #tech-button-order');
 const resetButton = document.querySelector('section#techs #tech-button-reset');
 
+const contactEmail = document.querySelector('section#contact #contact__email');
+
+import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed} from './modules/scrollFunctions.js';
+import {loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
+import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
+import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter} from './modules/toolsArea/toolsFunctions.js';
+import {loadEducation} from './modules/aboutArea/aboutFunctions.js';
+import {copyEmail} from './modules/socialArea/socialFunctions.js';
+
+homeAboutButton.addEventListener("click", (event)=>{
+    scrollOnClick(event);
+});
 
 let base = 'default';
 
 const observer = new MutationObserver((mutations)=>{
     mutations.forEach((mutation)=>{
         base = techsListContent.getAttribute(mutation.attributeName);
-    })
+    });
 });
 
 observer.observe(techsListContent, {
     attributes: true,
 });
-
-import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed} from './modules/scrollFunctions.js';
-import {showRightMenu, loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
-import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
-import {loadTools, filterOnInput, showModalTechs, sortTools, showModalPicker, resetFilter} from './modules/toolsArea/toolsFunctions.js'
-import {generateModal, showHelp} from './modules/modalFunctions.js';
-import {projectColors} from './assets/projectInfo.js';
-import {loadEducation} from './modules/aboutArea/components/education.js';
 
 showMenu('nav-toggle','nav-menu','.nav__list');
 
@@ -48,28 +49,28 @@ loadEducation();
 
 loadProjects();
 
-btnsHelp[0].addEventListener("click", (event)=>{
-    //Help Button for Projects Section
-    const section = document.querySelector('section#projects');
-    showModalProjects('help', section, event);
-});
-
-btnsHelp[1].addEventListener("click", (event)=>{
-    //Help Button for Techs Section
-    const section = document.querySelector('section#techs');
-    showModalTechs('help', section, event);
-});
-
 loadTools();
+
+projectsHelpButton.addEventListener("click", (event)=>{
+    //Help Button for Projects Section
+    event.preventDefault();
+    showModalProjects('help', event);
+});
+
+techsHelpButton.addEventListener("click", (event)=>{
+    //Help Button for Techs Section
+    event.preventDefault();
+    showModalTechs('help', event);
+});
 
 searchByNameInput.addEventListener("input", (event)=>{
     filterOnInput(event.target.value);
-})
+});
 
 searchByCategoryDiv.addEventListener("click", (event)=>{
     event.preventDefault();
     showModalPicker('filter', base);
-})
+});
 
 showMoreButton.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -83,7 +84,7 @@ showLessButton.addEventListener("click", (event)=>{
 
 orderButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    //loadTools(base, 'more', true);
+    showModalPicker('sort', base);
 });
 
 resetButton.addEventListener("click", (event)=>{
@@ -91,17 +92,14 @@ resetButton.addEventListener("click", (event)=>{
     resetFilter(1000, null, true);
 });
 
-aboutBtn.addEventListener("click", (event)=>{
-    scrollOnClick(event);
-});
-
-const teste2 = document.getElementById('filter-bar');
-//console.log(teste.offsetTop + teste.offsetHeight, teste2.offsetWidth)
+contactEmail.addEventListener("click", (event)=>{
+    event.preventDefault();
+    copyEmail();
+})
 
 window.addEventListener("scroll", () => {
     sectionOnScroll(sections);
-    scrollToTop(scrollerTop, projectColors);
-    filterBarFixed();
-    //console.log(searchByCategoryDiv.offsetTop + searchByCategoryDiv.offsetHeight, teste2.offsetWidth)    
+    scrollToTop(scrollerTop);
+    filterBarFixed();   
 });
 

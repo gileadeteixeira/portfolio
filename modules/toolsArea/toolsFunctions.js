@@ -1,19 +1,17 @@
 import {tools} from '../../databases/tools.js';
 
-        /*
-        Keys:
-            type: "framework"; "server"; "text editor"; "cloud"; "programming language"; "stylesheet language"; "software"; "markup language"; "library"; "data-interchange language" "software compilation";
-
-            stack: null; "front-end"; "back-end"; "full-stack";
-
-            area: null; "web"; "mobile"; "logic"; "multi-platform", "server", "package manager".
-
-            status: null; "utilizada"; "aprofundada"
-        */
-
 import {filters} from '../../databases/filters.js';
 
-//const tools = require('../../databases/tools.json').tools;
+/*
+Keys:
+    type: "framework"; "server"; "text editor"; "cloud"; "programming language"; "stylesheet language"; "software"; "markup language"; "library"; "data-interchange language" "software compilation";
+
+    stack: null; "front-end"; "back-end"; "full-stack";
+
+    area: null; "web"; "mobile"; "logic"; "multi-platform", "server", "package manager".
+
+    status: null; "utilizada"; "aprofundada"
+*/
 
    
 let optionSelected = {
@@ -21,6 +19,7 @@ let optionSelected = {
     "value": "",
     "result": "",
 };
+
 let currentBase = [];
 
 export const setStatusIndicator = (tool)=>{
@@ -96,26 +95,29 @@ export const createModalTools = {
 }
 
 export const sortTools = {
-    byGrowingAlphabetical : ()=>{//A-Z
-        return 1;
+    byGrowingAlphabetical : (first, second)=>{//A-Z
+        return first > second ? 1 : -1;
     },
 
-    byDecreasingAlphabetical : ()=>{//Z-A
-        return -1;
+    byDecreasingAlphabetical : (first, second)=>{//Z-A
+        return second > first ? 1 : -1;
     },
 
     byGrowingEvolution : (first, second)=>{//mais antiga primeiro
-        return first - second;
+        return first > second ? 1 : -1;
     },
 
     byDecreasingEvolution : (first, second)=>{//mais recente primeiro
-        return second - first;
+        return second > first ? 1 : -1;
     }
 }
 
 export const editTools = {
     loadAllTools : ()=>{        
-        return tools.map(tool=>{
+        return tools.sort((toolA,toolB)=>{
+            return editTools.setSort(toolA, toolB, sortTools.byGrowingAlphabetical);
+        })
+        .map(tool=>{
             return editTools.setLongDate(tool);
         })
     },
@@ -144,7 +146,9 @@ export const editTools = {
         let type = sortType.name.replace(/byGrowing|byDecreasing/gmi, '').toLowerCase();
         switch (type) {
             case "alphabetical":
-                result = sortType();
+                let first = toolA.alias.toUpperCase();
+                let second = toolB.alias.toUpperCase();
+                result = sortType(first, second);
                 break;
             case "evolution":
                 let date1 = toolA.advance != null ? new Date(toolA.advance) : new Date(toolA.start);
@@ -234,7 +238,7 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
                 })
             }
         });
-        console.log(id + " , " + key);
+        //console.log(id + " , " + key);
     }
     //span.classList.remove('filled');
 
@@ -261,6 +265,8 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
     if (id != '' && key !='' && (optionSelected.key == '' && optionSelected.result =='' && optionSelected.value =='')) {
         arrayTools = editTools.filterBy(arrayTools, id, key);
     }
+
+    currentBase = arrayTools;
     
     let start = techsContent.children.length;
     let end = start + 9;
@@ -298,8 +304,8 @@ export const showMoreTechs = (arrayTools, techsContent, start, end)=>{
                 `;
                 techsContent.appendChild(techsBox);            
                 techsBox.addEventListener("click", (event)=>{
-                    const section = document.querySelector('section#techs');
-                    showModalTechs('info', section, event, tech);
+                    event.preventDefault();
+                    showModalTechs('info', tech);
                 })
             }
         }
@@ -321,8 +327,8 @@ export const showLessTechs = (techsContent, start)=>{
     }
 }
 
-export const showModalTechs = (type, section, event, project = null)=>{
-    event.preventDefault();
+export const showModalTechs = (type, project = null)=>{
+    const section = document.querySelector('section#techs');
     const newModal = document.createElement("div");
     newModal.classList.add("custom-modal__container");
     newModal.innerHTML = createModalTools[type](project);
@@ -346,50 +352,74 @@ export const showModalTechs = (type, section, event, project = null)=>{
 );*/
 
 export const showModalPicker = (type, base)=>{
-    modalGenerator();
+    modalGenerator(type);
     switch (type) {
         case 'filter':
-            filters.forEach((property)=>{selectsGenerator(type, base, property)}); 
+            filters.forEach((property)=>{selectsGenerator(type, property)}); 
+            finishFilter(base);
             break;
         case 'sort':
-            selectsGenerator(type, base);
+            selectsGenerator(type);
+            finishOrder(base);
             break;
         default:
             break;
     }
-    finishFilter(base);
     const closeButton = document.querySelector("section#techs .field-options__close-icon");
     closeButton.addEventListener("click", () => closeModal());
 }
 
-export const modalGenerator = ()=>{
+export const modalGenerator = (type)=>{
     const filterBar = document.querySelector('section#techs #filter-bar');
     const modalPicker = document.createElement('div');
     modalPicker.classList.add('custom-modal__container');
     modalPicker.id = 'modal-picker';
-    modalPicker.innerHTML = `
-    <div class="custom-modal__box field-options__box">
-        <h2 class="custom-modal__title">
-            Categorias
-            <i class='bx bx-x custom-modal__icon field-options__close-icon'></i>
-        </h2>
-        <span class="custom-modal__help-text categories-help-text">
-            Selecione somente uma categoria, aplique o filtro adicional (ou não), e clique (ou toque) em "OK"
-        </span>
-        <div class="field-options__data"></div>
-        <div class="field-options__checkbox-box">
-            <input type="checkbox" class="field-options__checkbox" id="change-tools-checkbox">
-            <label for="change-tools-checkbox" class="label__for-checkbox">Aplicar apenas para as tecnologias utilizadas</label>
-        </div>
-        <div class="field-options__ok-button-box">
-            <button class="button interactive" id="field-options__ok-button">OK</button>
-        </div>
-    </div>
-    `;
+    switch (type) {
+        case 'filter':
+            modalPicker.innerHTML = `
+            <div class="custom-modal__box field-options__box">
+                <h2 class="custom-modal__title">
+                    Categorias
+                    <i class='bx bx-x custom-modal__icon field-options__close-icon'></i>
+                </h2>
+                <span class="custom-modal__help-text categories-help-text">
+                    Selecione somente uma categoria, aplique o filtro adicional (ou não), e clique (ou toque) em "OK"
+                </span>
+                <div class="field-options__data"></div>
+                <div class="field-options__checkbox-box">
+                    <input type="checkbox" class="field-options__checkbox" id="change-tools-checkbox">
+                    <label for="change-tools-checkbox" class="label__for-checkbox">Aplicar apenas para as tecnologias utilizadas</label>
+                </div>
+                <div class="field-options__ok-button-box">
+                    <button class="button interactive" id="field-options__ok-button">OK</button>
+                </div>
+            </div>
+            `;
+            break;
+        case 'sort':
+            modalPicker.innerHTML = `
+            <div class="custom-modal__box field-options__box">
+                <h2 class="custom-modal__title">
+                    Ordenar
+                    <i class='bx bx-x custom-modal__icon field-options__close-icon'></i>
+                </h2>
+                <span class="custom-modal__help-text categories-help-text">
+                    Selecione somente uma ordem, e clique (ou toque) em "OK"
+                </span>
+                <div class="field-options__data"></div>
+                <div class="field-options__ok-button-box">
+                    <button class="button interactive" id="field-options__ok-button">OK</button>
+                </div>
+            </div>
+            `;
+            break;
+        default:
+            break;
+    }
     filterBar.appendChild(modalPicker);
 }
 
-export const selectsGenerator = (type, base, property)=> {
+export const selectsGenerator = (type, property)=> {
     const modalPickerData = document.querySelector('section#techs .field-options__data');
     const fieldOption = document.createElement('div');
     fieldOption.classList.add('field__option');
@@ -402,7 +432,7 @@ export const selectsGenerator = (type, base, property)=> {
             `;
             modalPickerData.appendChild(fieldOption);
             optionsGenerator[type](property);
-            selectOption(base, property);
+            selectOption(property);
             break;
         case 'sort':
             //property = sort property
@@ -412,7 +442,7 @@ export const selectsGenerator = (type, base, property)=> {
             `; 
             modalPickerData.appendChild(fieldOption);
             optionsGenerator[type]();
-            selectOption(base);
+            selectOption();
         default:
             break;
     }
@@ -445,7 +475,7 @@ export const optionsGenerator = {
             option.value = `${name}`;
             switch (name) {
                 case 'byGrowingAlphabetical':
-                    option.innerHTML = `Alfabética A - Z`;
+                    option.innerHTML = `Alfabética A - Z (padrão)`;
                     break;
 
                 case 'byDecreasingAlphabetical':
@@ -453,11 +483,11 @@ export const optionsGenerator = {
                     break;
 
                 case 'byGrowingEvolution':
-                    option.innerHTML = `Trajetória crescente (ex.: 01/01 - 02/01)`;
+                    option.innerHTML = `Trajetória crescente (antigas primeiro)`;
                     break;
 
                 case 'byDecreasingEvolution':
-                    option.innerHTML = `Trajetória decrescente (ex.: 02/01 - 01/01)`;
+                    option.innerHTML = `Trajetória decrescente (recentes primeiro)`;
                     break;
 
                 default:
@@ -468,7 +498,7 @@ export const optionsGenerator = {
     }
 }
 
-export const selectOption = (base, property = null)=>{ 
+export const selectOption = (property = null)=>{ 
     if (property != null) {
         const select = document.querySelector(`section#techs .field-options__data select#${property.id}`);
         select.addEventListener('change', (event)=>{
@@ -488,6 +518,14 @@ export const selectOption = (base, property = null)=>{
         });
     } else {
         const select = document.querySelector(`section#techs .field-options__data select#sort-selector`);
+        select.addEventListener('change', (event)=>{
+            let key = event.target.value;
+            //console.log(key);
+            optionSelected.key = '';
+            optionSelected.value = key;
+            optionSelected.result = '';
+            //console.log(optionSelected);
+        });
     }     
 }
 
@@ -498,11 +536,9 @@ export const closeModal = ()=>{
 }
 
 export const resetData = ()=>{
-    optionSelected = {
-        "key": "",
-        "value": "",
-        "result": "",
-    };
+    optionSelected.key = '';
+    optionSelected.value = '';
+    optionSelected.result = '';
 }
 
 export const finishFilter = (base)=>{
@@ -521,7 +557,7 @@ export const finishFilter = (base)=>{
                 techsContent.setAttribute('base', 'default');
                 arrayTools = editTools.loadAllTools();
             }
-            let arrayBase = editTools.filterBy(arrayTools, optionSelected.key, optionSelected.value);
+            let arrayBase = editTools.filterBy(arrayTools, optionSelected.key, optionSelected.value);            
             if (arrayBase.length > 0) {
                 loadTools(base,'more', true, arrayBase);                
             } else {
@@ -536,6 +572,7 @@ export const finishFilter = (base)=>{
             span.innerHTML = optionSelected.result;
             span.classList.add('filled');
             //optionSelected.result
+            currentBase = arrayBase;
             resetData();
             closeModal();
         } else {
@@ -595,7 +632,7 @@ export const resetFilter = (timeout = 1000, arrayTools = null, resetInput = fals
         if (arrayTools != null) {
             loadTools('default', 'more', true, arrayTools);
         } else {
-            currentBase = [];
+            currentBase.length = 0;
             loadTools('default', 'more', true);
         }
     }, timeout);
@@ -603,4 +640,66 @@ export const resetFilter = (timeout = 1000, arrayTools = null, resetInput = fals
 
 export const compressString = (string, elementMaxWidth)=>{
     return string.replace(string.substring(elementMaxWidth, string.length), "...");
+}
+
+export const finishOrder = (base)=>{
+    const okButton = document.querySelector('section#techs #field-options__ok-button');
+    okButton.addEventListener("click", ()=>{
+        if (optionSelected.value != '') { 
+            const techsContent = document.querySelector('section#techs .custom-list__content');
+            const loadIcon = document.createElement('div');
+            loadIcon.classList.add('loading-icon__box');
+            loadIcon.innerHTML = `<i class='bx bx-loader-alt loading-icon'></i>`;
+
+            let start = techsContent.children.length;
+            if (start == 0) {
+                techsContent.innerHTML = ``;
+            }
+
+            for (let index = start-1; index >= 0; index--) {
+                techsContent.removeChild(techsContent.children[index]);
+            }
+
+            techsContent.appendChild(loadIcon);
+
+            let sortType = ()=>{};
+
+            switch (optionSelected.value) {
+                case 'byGrowingAlphabetical':
+                    sortType = sortTools.byGrowingAlphabetical;
+                    break;
+
+                case 'byDecreasingAlphabetical':
+                    sortType = sortTools.byDecreasingAlphabetical;
+                    break;
+
+                case 'byGrowingEvolution':
+                    sortType = sortTools.byGrowingEvolution;
+                    currentBase = editTools.myTools();
+                    break;
+
+                case 'byDecreasingEvolution':
+                    sortType = sortTools.byDecreasingEvolution;
+                    currentBase = editTools.myTools();
+                    break;
+
+                default:
+                    break;
+            }
+
+            currentBase = currentBase.sort((toolA,toolB)=>{
+                return editTools.setSort(toolA, toolB, sortType);
+            });
+
+            if (currentBase.length > 0) {
+                setTimeout(() => {
+                    loadTools(base, 'more', true, currentBase);
+                }, 1000);              
+            }
+            resetData();
+            closeModal();
+        } else {
+            alert('Você não selecionou nenhuma opção!');
+        }
+    })
 }

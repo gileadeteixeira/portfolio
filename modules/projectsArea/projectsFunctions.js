@@ -44,8 +44,8 @@ export const createModalProjects = (type, project = null )=>{
     }
 }
 
-export const showModalProjects = (type, section, event, project = null)=>{
-    event.preventDefault();
+export const showModalProjects = (type, project = null)=>{
+    const section = document.querySelector('section#projects');
     const newModal = document.createElement("div");
     newModal.classList.add("custom-modal__container");
     newModal.innerHTML = createModalProjects(type, project);

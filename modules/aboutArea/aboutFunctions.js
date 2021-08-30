@@ -1,4 +1,4 @@
-import {courses} from '../../../databases/courses.js';
+import {courses} from '../../databases/courses.js';
 
 //const courses = require('../../../databases/courses.json').courses;
 
