@@ -80,7 +80,7 @@ export const loadProjects = ()=>{
 
             projectsBox.addEventListener("click", (event)=>{
                 const section = document.querySelector('section#projects');
-                showModalProjects('info', section, event, project);
+                showModalProjects('info', project);
             })
         }
     );

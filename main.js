@@ -20,9 +20,9 @@ const contactEmail = document.querySelector('section#contact #contact__email');
 
 import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed} from './modules/scrollFunctions.js';
 import {loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
+import {loadEducation} from './modules/aboutArea/aboutFunctions.js';
 import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
 import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter} from './modules/toolsArea/toolsFunctions.js';
-import {loadEducation} from './modules/aboutArea/aboutFunctions.js';
 import {copyEmail} from './modules/socialArea/socialFunctions.js';
 
 homeAboutButton.addEventListener("click", (event)=>{
@@ -102,4 +102,3 @@ window.addEventListener("scroll", () => {
     scrollToTop(scrollerTop);
     filterBarFixed();   
 });
-

@@ -10,7 +10,7 @@ export const showRightMenu = (generateModal, container, event, scrollOnClick) =>
     const menuBtnClose = document.querySelector('#menu-btn-close');
     const menuItens = document.querySelectorAll('nav.mobile-nav ul li');
 
-    console.log(menuItens);
+    //console.log(menuItens);
 
     menuBtnClose.addEventListener("click", (event)=>{
         event.preventDefault();

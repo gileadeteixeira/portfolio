@@ -20,7 +20,7 @@
     <!--===== HEADER =====-->
     <header class="menu-header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">
+            <a href="" class="nav__logo">
                 <img src="./assets/icons/inApp-icons/gt.svg" alt="gt-logo" id="gt-logo" aria-label="logo">
                 <span>GILEADE TEIXEIRA</span>
             </a>
@@ -59,19 +59,19 @@
                         <a href="#about" class="button" id="about-button">Sobre mim</a>
                         <a href="http://shorturl.at/aqzV2" target="_blank" rel="noopener noreferrer" class="button">Currículo</a>
                     </div>
+                    <div class="home__socials">
+                        <a href="https://www.linkedin.com/in/gileade-teixeira-b86935204/" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/linkedin.svg" alt="linkedin-icon">
+                        </a>
+                        <a href="https://github.com/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/github.svg" alt="github-icon">
+                        </a>
+                        <a href="https://www.frontendmentor.io/profile/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/frontedmentor.svg" alt="frontedmentor-icon">
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="home__socials">
-                    <a href="https://www.linkedin.com/in/gileade-teixeira-b86935204/" target="_blank" rel="noopener noreferrer" class="home__social-icon">
-                        <img src="./assets/icons/social-icons/linkedin.svg" alt="linkedin-icon">
-                    </a>
-                    <a href="https://github.com/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
-                        <img src="./assets/icons/social-icons/github.svg" alt="github-icon">
-                    </a>
-                    <a href="https://www.frontendmentor.io/profile/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
-                        <img src="./assets/icons/social-icons/frontedmentor.svg" alt="frontedmentor-icon">
-                    </a>
-                </div>
 
                 <div class="home__img">
                     <img src="./assets/personal/foto-rosto.svg" alt="">
@@ -83,7 +83,7 @@
         <section class="about section container" id="about">
             <h2 class="section-title">- Sobre mim -</h2>
 
-            <div class="section__container grid section__container">
+            <div class="about__container grid section__container">
                 <div class="section__data grid">
                     <p class="about__description">
                         <span>
@@ -108,21 +108,21 @@
 
         <!--===== EDUCATION =====-->
         <section class="qualification section container" id="qualification">
-                <h2 class="section-title">
-                    - Qualificação -
-                </h2>
-        
-                <div class="qualification__container grid section__container">
-                    <div class="qualification__content">
-                        <h2 class="qualification__title">
-                            <i class='bx bxs-graduation qualification__title-icon'></i>
-                            Cursos
-                        </h2>
-        
-                        <div class="grid" id="qualification-courses">
-                        </div>
+            <h2 class="section-title">
+                - Qualificação -
+            </h2>
+    
+            <div class="qualification__container grid section__container">
+                <div class="qualification__content">
+                    <h2 class="qualification__title">
+                        <i class='bx bxs-graduation qualification__title-icon'></i>
+                        Cursos
+                    </h2>
+    
+                    <div class="grid" id="qualification-courses">
                     </div>
                 </div>
+            </div>
         </section>
 
         <!--===== PROJECTS =====-->
@@ -162,28 +162,32 @@
                         <i class='bx bx-chevron-down field-icon'></i>
                     </div>
                 </div>
-                <div class="filter-bar__button-box filter-bar__box">
-                    <div class="button__icon">
-                        <i class='bx bx-list-plus' id="tech-button-show-more"></i>
+                <div class="icons-box">
+                    <div class="filter-bar__box read-box">
+                        <span class="filter-bar__text">
+                            Leitura:
+                        </span>
+                        <div class="directions">
+                            <i class='bx bx-right-arrow-circle'></i>
+                            <i class='bx bx-left-down-arrow-circle'></i>
+                            <i class='bx bx-right-arrow-circle'></i>
+                        </div>
                     </div>
-                    <div class="button__icon">
-                        <i class='bx bx-list-minus' id="tech-button-show-less"></i>
-                    </div>
-                    <div class="button__icon">
-                        <i class='bx bx-list-ol' id="tech-button-order"></i>
-                    </div>
-                    <div class="button__icon">
-                        <i class='bx bx-refresh' id="tech-button-reset"></i>
-                    </div>                        
+                    <div class="filter-bar__box buttons-box">
+                        <div class="button__icon">
+                            <i class='bx bx-list-plus' id="tech-button-show-more"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-list-minus' id="tech-button-show-less"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-list-ol' id="tech-button-order"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-refresh' id="tech-button-reset"></i>
+                        </div> 
+                    </div>               
                 </div>
-                <span class="section__text">
-                    Leitura:
-                    <div class="directions">
-                        <i class='bx bx-right-arrow-circle'></i>
-                        <i class='bx bx-left-down-arrow-circle'></i>
-                        <i class='bx bx-right-arrow-circle'></i>
-                    </div>
-                </span>
             </div>
             <div class="custom-list__container grid">
                 <div class="custom-list__content" base="default">
