@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gileade Teixeira</title>
+    <link rel="shortcut icon" href="./assets/icons/inApp-icons/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.13.0/devicon.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./main.js" type="module"></script>
+</head>
+<body>
+    <!--===== SCROLL TOP =====-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevrons-up' id="scroll-top-icon"></i>
+    </a>
+
+    <!--===== HEADER =====-->
+    <header class="menu-header" id="header">
+        <nav class="nav container">
+            <a href="" class="nav__logo">
+                <img src="./assets/icons/inApp-icons/gt.svg" alt="gt-logo" id="gt-logo" aria-label="logo">
+                <span>GILEADE TEIXEIRA</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Sobre mim</a></li>
+                    <li class="nav__item"><a href="#qualification" class="nav__link">Qualificação</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Principais Projetos</a></li>
+                    <li class="nav__item"><a href="#techs" class="nav__link">Tecnologias</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contato</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu' id="menu-icon"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== CONTENT =====-->
+    <main class="main-area">
+
+        <!--===== HOME =====-->
+        <section class="home section container" id="home">
+            <div class="home__container grid">
+
+                <div class="home__data">
+                    <span class="home__welcome">
+                        Bem-vindo! Meu nome é
+                    </span>
+                    <h1 class="home__name">Gileade,</h1>
+                    <span class="home__profession">
+                        e eu sou <strong>Desenvolvedor Web</strong>.
+                    </span>
+                    <div class="home__buttons">
+                        <a href="#about" class="button" id="about-button">Sobre mim</a>
+                        <a href="http://shorturl.at/aqzV2" target="_blank" rel="noopener noreferrer" class="button">Currículo</a>
+                    </div>
+                    <div class="home__socials">
+                        <a href="https://www.linkedin.com/in/gileade-teixeira-b86935204/" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/linkedin.svg" alt="linkedin-icon">
+                        </a>
+                        <a href="https://github.com/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/github.svg" alt="github-icon">
+                        </a>
+                        <a href="https://www.frontendmentor.io/profile/gileadeteixeira" target="_blank" rel="noopener noreferrer" class="home__social-icon">
+                            <img src="./assets/icons/social-icons/frontedmentor.svg" alt="frontedmentor-icon">
+                        </a>
+                    </div>
+                </div>
+                
+
+                <div class="home__img">
+                    <img src="./assets/personal/foto-rosto.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section container" id="about">
+            <h2 class="section-title">- Sobre mim -</h2>
+
+            <div class="about__container grid section__container">
+                <div class="section__data grid">
+                    <p class="about__description">
+                        <span>
+                            Desde criança eu vivia cercado pela tecnologia.<br>
+                            Com o passar do tempo, começei a tomar gosto por Design Gráfico, e formatação textual.
+                        </span>
+                    </p>
+                    <p class="about__description">
+                        <span>
+                            Aos 17 anos, decidi que eu iria conquistar uma graduação tecnológica.<br>
+                            Após poucas tentativas, fui conduzido ao curso de Análise de Sistemas, onde conheci a programação.
+                        </span>
+                    </p>
+                    <p class="about__description">
+                        <span>
+                            Com 19 anos, ainda na faculdade, fui desafiado por um projeto mobile, gostei, e decidi “começar do zero”, iniciando estudos e práticas na área de Desenvolvimento Web.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== EDUCATION =====-->
+        <section class="qualification section container" id="qualification">
+            <h2 class="section-title">
+                - Qualificação -
+            </h2>
+    
+            <div class="qualification__container grid section__container">
+                <div class="qualification__content">
+                    <h2 class="qualification__title">
+                        <i class='bx bxs-graduation qualification__title-icon'></i>
+                        Cursos
+                    </h2>
+    
+                    <div class="grid" id="qualification-courses">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== PROJECTS =====-->
+        <section class="projects section container" id="projects">
+            <h2 class="section-title">
+                - Principais Projetos -                   
+                <div class="button__icon help">
+                    <i class='bx bx-help-circle help__button' id="help__projects"></i>
+                </div>
+            </h2>
+
+            <div class="custom-list__container grid">
+                <div class="custom-list__content">
+                </div>
+            </div>
+        </section>
+
+        <!--===== TECHS =====-->
+        <section class="techs section container" id="techs">
+            <h2 class="section-title">
+                - Tecnologias -
+                <div class="button__icon help">
+                    <i class='bx bx-help-circle help__button' id="help__techs"></i>
+                </div>
+            </h2>
+
+            <div class="filter-bar" id="filter-bar">
+                <div class="fields-box">
+                    <div class="filter-bar__box filter-bar__input-box">
+                        <i class='bx bx-search field-icon'></i>
+                        <input type="text" class="field input-search" id="tech-search-by-name" placeholder="Pesquisar por nome...">
+                    </div>
+                    <div class="filter-bar__box filter-bar__selector-box" id="tech-search-by-category">
+                        <span class="field selector-search" >
+                            Pesquisar por categoria...
+                        </span>
+                        <i class='bx bx-chevron-down field-icon'></i>
+                    </div>
+                </div>
+                <div class="icons-box">
+                    <div class="filter-bar__box read-box">
+                        <span class="filter-bar__text">
+                            Leitura:
+                        </span>
+                        <div class="directions">
+                            <i class='bx bx-right-arrow-circle'></i>
+                            <i class='bx bx-left-down-arrow-circle'></i>
+                            <i class='bx bx-right-arrow-circle'></i>
+                        </div>
+                    </div>
+                    <div class="filter-bar__box buttons-box">
+                        <div class="button__icon">
+                            <i class='bx bx-list-plus' id="tech-button-show-more"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-list-minus' id="tech-button-show-less"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-list-ol' id="tech-button-order"></i>
+                        </div>
+                        <div class="button__icon">
+                            <i class='bx bx-refresh' id="tech-button-reset"></i>
+                        </div> 
+                    </div>               
+                </div>
+            </div>
+            <div class="custom-list__container grid">
+                <div class="custom-list__content" base="default">
+                </div>
+            </div>
+        </section>
+        
+        <!--===== CONTACT =====-->
+        <section class="contact section container" id="contact">
+            <h2 class="section-title">
+                - Contato -
+            </h2>
+            <div class="contact__container grid section__container">
+                <a href="https://api.whatsapp.com/send?phone=5575998547269" target="_blank" rel="noopener noreferrer" class="contact__item">
+                    <div class="contact__icon">
+                        <img src="./assets/icons/social-icons/whatsapp.svg" alt="whatsapp-icon">
+                    </div>
+                    <span class="contact__name">
+                        WhatsApp
+                    </span>
+                </a>
+                <a href="https://www.instagram.com/gil_txra/" target="_blank" rel="noopener noreferrer" class="contact__item">
+                    <div class="contact__icon">
+                        <img src="./assets/icons/social-icons/instagram.svg" alt="instagram-icon">
+                    </div>
+                    <span class="contact__name">
+                        Instagram
+                    </span>
+                </a>
+                <a href="https://www.facebook.com/gileade.teixeira" target="_blank" rel="noopener noreferrer" class="contact__item">
+                    <div class="contact__icon">
+                        <img src="./assets/icons/social-icons/facebook.svg" alt="facebook-icon">
+                    </div>
+                    <span class="contact__name">
+                        Facebook
+                    </span>
+                </a>
+                <a href="https://twitter.com/giltxra" target="_blank" rel="noopener noreferrer" class="contact__item">
+                    <div class="contact__icon">
+                        <img src="./assets/icons/social-icons/twitter.svg" alt="twitter-icon">
+                    </div>
+                    <span class="contact__name">
+                        Twitter
+                    </span>
+                </a>
+                <a href="gileadeateixeira@gmail.com" class="contact__item" id="contact__email">
+                    <div class="contact__icon">
+                        <img src="./assets/icons/social-icons/email.svg" alt="email-icon">
+                    </div>
+                    <span class="contact__name">
+                        E-mail
+                    </span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+</body>
