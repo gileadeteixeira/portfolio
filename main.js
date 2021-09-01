@@ -22,7 +22,7 @@ import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBar
 import {loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
 import {loadEducation} from './modules/aboutArea/aboutFunctions.js';
 import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
-import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter} from './modules/toolsArea/toolsFunctions.js';
+import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter, showLoading ,moveOnChangeContent} from './modules/toolsArea/toolsFunctions.js';
 import {copyEmail} from './modules/socialArea/socialFunctions.js';
 
 homeAboutButton.addEventListener("click", (event)=>{
@@ -41,7 +41,7 @@ observer.observe(techsListContent, {
     attributes: true,
 });
 
-showMenu('nav-toggle','nav-menu','.nav__list');
+showMenu('#nav-toggle','#nav-menu','.nav__list');
 
 loadLinksActions(scrollOnClick, scrollToPosition);
 
@@ -74,12 +74,17 @@ searchByCategoryDiv.addEventListener("click", (event)=>{
 
 showMoreButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    loadTools(base);
+    moveOnChangeContent();
+    showLoading();
+    setTimeout(() => {
+        loadTools(base);        
+    }, 1000);
 });
 
 showLessButton.addEventListener("click", (event)=>{
     event.preventDefault();
     loadTools(base, 'less');
+    moveOnChangeContent(); 
 });
 
 orderButton.addEventListener("click", (event)=>{
@@ -89,7 +94,11 @@ orderButton.addEventListener("click", (event)=>{
 
 resetButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    resetFilter(1000, null, true);
+    const sectionProjectsOffsetTop = document.querySelector('section#techs').offsetTop;
+    scrollToPosition(sectionProjectsOffsetTop);
+    setTimeout(() => {
+        resetFilter(1000, null, true);        
+    }, 500);
 });
 
 contactEmail.addEventListener("click", (event)=>{

@@ -13,7 +13,7 @@ export const copyEmail = ()=>{
     emailModal.innerHTML = `
     <div class="contact__email-modal">
         <span>
-            <strong>E-mail copiado! </strong>(gileadeateixeira@gmail.com)
+            <strong>Gmail copiado! </strong>(gileadeateixeira@gmail.com)
         </span>
     </div>
     `;

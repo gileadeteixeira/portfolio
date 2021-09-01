@@ -29,11 +29,11 @@ export const showRightMenu = (generateModal, container, event, scrollOnClick) =>
 };
 
 export const showMenu = (toggleId , navId, navListClass) => {
-    const toggle = document.getElementById(toggleId);
-    const nav = document.getElementById(navId);
+    const toggle = document.querySelector(toggleId);
+    const nav = document.querySelector(navId);
     const list = document.querySelector(navListClass);
     const close = () =>{
-        const menuIcon = document.getElementById('menu-icon');
+        const menuIcon = document.querySelector('#menu-icon');
         if (menuIcon.className == 'bx bx-menu') {
             nav.classList.add('menu-open');
             menuIcon.className = 'bx bx-x';            
