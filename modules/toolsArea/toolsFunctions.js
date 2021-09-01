@@ -2,6 +2,8 @@ import {tools} from '../../databases/tools.js';
 
 import {filters} from '../../databases/filters.js';
 
+import {scrollToPosition} from '../../modules/scrollFunctions.js';
+
 /*
 Keys:
     type: "framework"; "server"; "text editor"; "cloud"; "programming language"; "stylesheet language"; "software"; "markup language"; "library"; "data-interchange language" "software compilation";
@@ -41,7 +43,7 @@ export const createModalTools = {
                 <i class='bx bx-x custom-modal__icon'></i>
             </h2>
             <div class="custom-modal__data">
-                <span class="custom-modal__help-text">
+                <span class="custom-modal__help-description">
                     Clique ou toque em uma tecnologia, e ela será exibida no seguinte modelo:
                 </span>
                 <a href="./assets/models/tech-model-mobile.svg" target="_blank" rel="noopener noreferrer">
@@ -75,7 +77,7 @@ export const createModalTools = {
                 <h2 class="custom-modal__tool-name">
                     ${tool.alias}
                 </h2>
-                <span class="custom-modal__description">
+                <span class="custom-modal__tool-about">
                     ${tool.about.replace(".","")}
                 </span>
                 <span class="custom-modal__description">
@@ -85,8 +87,8 @@ export const createModalTools = {
                     Avanço: ${tool.advance == null ? "---" : new Date(tool.advance).toLocaleString('pt-BR',{dateStyle: 'long'})}
                 </span>
                 <span class="custom-modal__tech-indicator-text">
-                    <i class='bx bxs-circle custom-modal__indicator-circle' style="color: ${setStatusIndicator(tool)};"></i>
                     ${tool.status == null ? "Nunca utilizei": (tool.status == "utilizada" ? "Utilizei, mas não apronfudei" : "Aprofundei/Aprofundando")}
+                    <i class='bx bxs-circle custom-modal__indicator-circle' style="color: ${setStatusIndicator(tool)};"></i>
                 </span>
             </div>
         </div>
@@ -267,17 +269,24 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
     }
 
     currentBase = arrayTools;
-    
+
+    let currentHeight = window.innerHeight/100;
+    //console.log(Math.floor(currentHeight));
+
     let start = techsContent.children.length;
-    let end = start + 9;
+    let end = start + Math.floor(currentHeight); //shows more tools according to window height
     if (reset == true) {
         for (let index = start-1; index >= 0; index--) {
             techsContent.removeChild(techsContent.children[index]);        
         }
         start = 0;
-        end = 9;
+        end = Math.floor(currentHeight);
     }
     
+    const loadIcon = document.querySelector('.loading-icon__box');
+    if (techsContent.contains(loadIcon)) {
+        techsContent.removeChild(loadIcon);
+    }
     
     action == 'more'
     ? showMoreTechs(arrayTools, techsContent, start, end)
@@ -334,16 +343,9 @@ export const showModalTechs = (type, project = null)=>{
     newModal.innerHTML = createModalTools[type](project);
     newModal.style.transition = '0.3s';
     section.appendChild(newModal);
-
-    const modalBackground = document.querySelector('section#techs .custom-modal__container');
     const customModalBtnClose = document.querySelector('section#techs .custom-modal__icon');
-
-    const close = () =>{
-        section.removeChild(modalBackground);
-    }
-
-    //modalBackground.addEventListener("click", () => close());
-    customModalBtnClose.addEventListener("click", () => close());
+    //closeModal(newModal);
+    closeModal(customModalBtnClose);
 }
 
 /*console.table(
@@ -366,7 +368,7 @@ export const showModalPicker = (type, base)=>{
             break;
     }
     const closeButton = document.querySelector("section#techs .field-options__close-icon");
-    closeButton.addEventListener("click", () => closeModal());
+    closeModal(closeButton);
 }
 
 export const modalGenerator = (type)=>{
@@ -404,7 +406,7 @@ export const modalGenerator = (type)=>{
                     <i class='bx bx-x custom-modal__icon field-options__close-icon'></i>
                 </h2>
                 <span class="custom-modal__help-text categories-help-text">
-                    Selecione somente uma ordem, e clique (ou toque) em "OK"
+                    Selecione uma ordem, e clique (ou toque) em "OK"
                 </span>
                 <div class="field-options__data"></div>
                 <div class="field-options__ok-button-box">
@@ -437,7 +439,7 @@ export const selectsGenerator = (type, property)=> {
         case 'sort':
             //property = sort property
             fieldOption.innerHTML=`
-            <label for="sort-selector">Tipo</label>    
+            <label for="sort-selector">Ordem</label>    
             <select id="sort-selector"></select>
             `; 
             modalPickerData.appendChild(fieldOption);
@@ -467,7 +469,7 @@ export const optionsGenerator = {
         const select = document.querySelector(`section#techs .field-options__data select#sort-selector`);
         const optionDefault = document.createElement('option');
         optionDefault.value = "";
-        optionDefault.innerHTML = "Nenhum";
+        optionDefault.innerHTML = "Nenhuma";
         select.appendChild(optionDefault);
         const sortsNames = Object.getOwnPropertyNames(sortTools);
         sortsNames.forEach((name)=>{
@@ -529,10 +531,22 @@ export const selectOption = (property = null)=>{
     }     
 }
 
-export const closeModal = ()=>{
-    const filterBar = document.querySelector('section#techs #filter-bar');
-    const modalPicker = document.querySelector('section#techs #modal-picker');
-    filterBar.removeChild(modalPicker);
+export const closeModal = (element = null)=>{
+    const close = ()=>{
+        const currentModal = document.querySelector('section#techs .custom-modal__container');
+        if (currentModal != null) {
+            const parent = currentModal.parentElement;
+            parent.removeChild(currentModal);
+        }
+    }
+
+    if (element != null) {
+        element.addEventListener("click", ()=>{
+            close();
+        })
+    } else {
+        close();
+    }
 }
 
 export const resetData = ()=>{
@@ -549,6 +563,8 @@ export const finishFilter = (base)=>{
             const techsContent = document.querySelector('section#techs .custom-list__content');
             const checkBox = document.querySelector('section#techs #change-tools-checkbox');
             const span = document.querySelector('section#techs .selector-search');
+            const sectionProjects = document.querySelector('section#techs');
+            showLoading(true);
             if (checkBox.checked == true){
                 techsContent.setAttribute('base', 'custom');
                 arrayTools = editTools.myTools();
@@ -557,26 +573,23 @@ export const finishFilter = (base)=>{
                 techsContent.setAttribute('base', 'default');
                 arrayTools = editTools.loadAllTools();
             }
-            let arrayBase = editTools.filterBy(arrayTools, optionSelected.key, optionSelected.value);            
-            if (arrayBase.length > 0) {
-                loadTools(base,'more', true, arrayBase);                
-            } else {
-                const warningMsg = document.createElement('span');
-                warningMsg.innerHTML = 'Nenhuma tecnologia encontrada.'
-                let start = techsContent.children.length;
-                for (let index = start-1; index >= 0; index--) {
-                    techsContent.removeChild(techsContent.children[index]);        
+            let arrayBase = editTools.filterBy(arrayTools, optionSelected.key, optionSelected.value);
+            setTimeout(() => {
+                if (arrayBase.length > 0) {
+                    loadTools(base,'more', true, arrayBase);
+                } else {
+                    showWarningText();    
                 }
-                techsContent.appendChild(warningMsg);
-            }
+            }, 1000);            
             span.innerHTML = optionSelected.result;
             span.classList.add('filled');
             //optionSelected.result
             currentBase = arrayBase;
+            scrollToPosition(sectionProjects.offsetTop);
             resetData();
             closeModal();
         } else {
-            alert('Você não selecionou nenhuma opção!');
+            newAlert('Você não selecionou nenhuma opção!')
         }
     });
 }
@@ -646,24 +659,8 @@ export const finishOrder = (base)=>{
     const okButton = document.querySelector('section#techs #field-options__ok-button');
     okButton.addEventListener("click", ()=>{
         if (optionSelected.value != '') { 
-            const techsContent = document.querySelector('section#techs .custom-list__content');
-            const loadIcon = document.createElement('div');
-            loadIcon.classList.add('loading-icon__box');
-            loadIcon.innerHTML = `<i class='bx bx-loader-alt loading-icon'></i>`;
-
-            let start = techsContent.children.length;
-            if (start == 0) {
-                techsContent.innerHTML = ``;
-            }
-
-            for (let index = start-1; index >= 0; index--) {
-                techsContent.removeChild(techsContent.children[index]);
-            }
-
-            techsContent.appendChild(loadIcon);
-
+            showLoading(true);
             let sortType = ()=>{};
-
             switch (optionSelected.value) {
                 case 'byGrowingAlphabetical':
                     sortType = sortTools.byGrowingAlphabetical;
@@ -696,10 +693,60 @@ export const finishOrder = (base)=>{
                     loadTools(base, 'more', true, currentBase);
                 }, 1000);              
             }
+            const sectionProjects = document.querySelector('section#techs');
+            //const sectionOffsetBottom = sectionProjects.offsetTop + sectionProjects.offsetHeight;
+            //const itemHeight = document.querySelector('section#techs .custom-list__box').offsetHeight;
+            //const techsContent = document.querySelector('section#techs .custom-list__content');
+            //const contentOffsetBottom = techsContent.offsetTop + techsContent.offsetHeight;
+            //const techsContentChildren = techsContent.children.length;
+            //console.log(sectionOffsetBottom, contentOffsetBottom, itemHeight)
+            scrollToPosition(sectionProjects.offsetTop);
             resetData();
             closeModal();
         } else {
-            alert('Você não selecionou nenhuma opção!');
+            newAlert('Você não selecionou nenhuma opção!');
         }
     })
+}
+
+export const showWarningText = ()=>{
+    const techsContent = document.querySelector('section#techs .custom-list__content');
+    const warningMsg = document.createElement('span');
+    warningMsg.innerHTML = 'Nenhuma tecnologia encontrada.'
+    let start = techsContent.children.length;
+    for (let index = start-1; index >= 0; index--) {
+        techsContent.removeChild(techsContent.children[index]);        
+    }
+    techsContent.appendChild(warningMsg);
+}
+
+export const showLoading = (reset = false)=>{
+    const techsContent = document.querySelector('section#techs .custom-list__content');
+    const loadIcon = document.createElement('div');
+    loadIcon.classList.add('loading-icon__box');
+    loadIcon.innerHTML = `<i class='bx bx-loader-alt loading-icon'></i>`;
+    let start = techsContent.children.length;
+    if (reset == true) {
+        for (let index = start-1; index >= 0; index--) {
+            techsContent.removeChild(techsContent.children[index]);
+        }
+    }
+    techsContent.appendChild(loadIcon);
+}
+
+export const newAlert = (msg)=>{
+    swal(msg, {
+        button: {
+          visible: false,
+        },
+        closeOnClickOutside: true,
+        timer: 2000,
+    })
+}
+
+export const moveOnChangeContent = ()=>{
+    const sectionProjects = document.querySelector('section#techs');
+    const sectionOffsetBottom = sectionProjects.offsetTop + sectionProjects.offsetHeight;
+    const itemHeight = document.querySelector('section#techs .custom-list__box').offsetHeight;
+    scrollToPosition(sectionOffsetBottom - itemHeight*10);
 }

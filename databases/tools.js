@@ -7,7 +7,7 @@ export const tools = [
         "area": "web",
         "stack": "front-end",
         "status": null,
-        "associated": ["HTML","CSS","JavaScript","TypeScript","Google", "MVC"],
+        "associated": ["JavaScript","Google", "MVC"],
         "about": "Framework front-end, em JavaScript, para desenvolvimento web.",
         "start": null,
         "advance": null
@@ -59,7 +59,7 @@ export const tools = [
         "area": "web",
         "stack": "front-end",
         "status": null,
-        "associated": ["HTML","CSS","JavaScript","TypeScript"],
+        "associated": ["HTML","CSS"],
         "about": "Framework front-end para desenvolvimento de componentes web.",
         "start": null,
         "advance": null
@@ -104,7 +104,7 @@ export const tools = [
         "advance": null
     },
     {
-        "alias": "CSS3",
+        "alias": "CSS 3",
         "fullName": "Cascading Style Sheets",
         "src": "css3",
         "type": "stylesheet-language",
@@ -202,7 +202,7 @@ export const tools = [
         "area": null,
         "stack": "full-stack",
         "status": "utilizada",
-        "associated": ["JavaScript","TypeScript","React","React Native"],
+        "associated": ["React","React Native"],
         "about": "Framework para aplicações React.",
         "start": "Mar 21 2021",
         "advance": null
@@ -371,7 +371,7 @@ export const tools = [
         "area": "mobile",
         "stack": "front-end",
         "status": null,
-        "associated": ["JavaScript","Angular","Vue.js", "React","React Native","Flutter"],
+        "associated": ["JavaScript"],
         "about": "Framework para desenvolvimento de aplicativos móveis.",
         "start": null,
         "advance": null
@@ -423,7 +423,7 @@ export const tools = [
         "area": "web",
         "stack": "front-end",
         "status": null,
-        "associated": ["JavaScript", "TypeScript"],
+        "associated": ["JavaScript"],
         "about": "Biblioteca do JavaScript.",
         "start": null,
         "advance": null
@@ -436,7 +436,7 @@ export const tools = [
         "area": null,
         "stack": "back-end",
         "status": "aprofundada",
-        "associated": ["JavaScript", "Firebase", "XML", "YAML"],
+        "associated": ["JavaScript", "XML", "YAML"],
         "about": "Linguagem para intercâmbio de dados.",
         "start": "Jul 18 2021",
         "advance": "Jul 18 2021"
@@ -462,7 +462,7 @@ export const tools = [
         "area": "server",
         "stack": "back-end",
         "status": null,
-        "associated": ["Linux", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
+        "associated": ["Linux", "Apache", "MySQL", "MariaDB", "PHP", "Pearl", "Python"],
         "about": "Fornecedor, para Linux, do servidor local para testar e verificar o funcionamento de projetos web.",
         "start": null,
         "advance": null
@@ -475,7 +475,7 @@ export const tools = [
         "area": "web",
         "stack": "full-stack",
         "status": null,
-        "associated": ["PHP", "MVC", "Vue.js"],
+        "associated": ["PHP", "MVC"],
         "about": "Framework full-stack, em PHP, para desenvolvimento web.",
         "start": null,
         "advance": null
@@ -501,7 +501,7 @@ export const tools = [
         "area": "server",
         "stack": "back-end",
         "status": null,
-        "associated": ["macOS", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
+        "associated": ["macOS", "Apache", "MySQL", "MariaDB", "PHP", "Pearl", "Python"],
         "about": "Fornecedor, para macOS, do servidor local para testar e verificar o funcionamento de projetos web.",
         "start": null,
         "advance": null
@@ -566,7 +566,7 @@ export const tools = [
         "area": "web",
         "stack": "full-stack",
         "status": null,
-        "associated": ["JavaScript","TypeScript","React"],
+        "associated": ["JavaScript","React"],
         "about": "Framework, baseado em React, para desenvolvimento web.",
         "start": null,
         "advance": null
@@ -579,7 +579,7 @@ export const tools = [
         "area": "server",
         "stack": "back-end",
         "status": "utilizada",
-        "associated": ["JavaScript","TypeScript","React"],
+        "associated": ["JavaScript","React"],
         "about": "Software para executar JavaScript fora do navegador.",
         "start": "Mar 21 2021",
         "advance": null
@@ -683,7 +683,7 @@ export const tools = [
         "area": "web",
         "stack": "front-end",
         "status": "utilizada",
-        "associated": ["JavaScript","TypeScript","React Native"],
+        "associated": ["JavaScript","React Native"],
         "about": "Biblioteca do JavaScript para desenvolvimento web.",
         "start": "Apr 05 2021",
         "advance": null
@@ -696,7 +696,7 @@ export const tools = [
         "area": "mobile",
         "stack": "front-end",
         "status": "utilizada",
-        "associated": ["JavaScript","TypeScript","React"],
+        "associated": ["JavaScript","React"],
         "about": "Biblioteca do JavaScript para desenvolvimento mobile.",
         "start": "Apr 05 2021",
         "advance": null
@@ -709,7 +709,7 @@ export const tools = [
         "area": "multi-platform",
         "stack": "back-end",
         "status": null,
-        "associated": ["JavaScript","TypeScript","React", "Angular"],
+        "associated": ["JavaScript","React"],
         "about": "Biblioteca do JavaScript para gerenciamento de estados.",
         "start": null,
         "advance": null
@@ -839,7 +839,7 @@ export const tools = [
         "area": "web",
         "stack": "front-end",
         "status": null,
-        "associated": ["JavaScript","TypeScript","Angular","React", "Node.js", "Nuxt.js"],
+        "associated": ["JavaScript","Node.js", "Nuxt.js"],
         "about": "Framework, em JavaScript, para desenvolvimento de interfaces e aplicativos single-page.",
         "start": null,
         "advance": null
@@ -852,7 +852,7 @@ export const tools = [
         "area": "server",
         "stack": "back-end",
         "status": "utilizada",
-        "associated": ["Windows", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
+        "associated": ["Windows", "Apache", "MySQL", "MariaDB", "PHP", "Pearl", "Python"],
         "about": "Fornecedor, para Windows, do servidor local para testar e verificar o funcionamento de projetos web.",
         "start": "Mar 15 2020",
         "advance": null
@@ -878,7 +878,7 @@ export const tools = [
         "area": "server",
         "stack": "back-end",
         "status": "utilizada",
-        "associated": ["Windows", "Apache", "MySQl", "MariaDB", "PHP", "Pearl", "Python"],
+        "associated": ["Windows", "Apache", "MySQL", "MariaDB", "PHP", "Pearl", "Python"],
         "about": "Fornecedor, multiplataforma, do servidor local para testar e verificar o funcionamento de projetos web.",
         "start": "Mar 15 2020",
         "advance": null
@@ -891,7 +891,7 @@ export const tools = [
         "area": null,
         "stack": "back-end",
         "status": null,
-        "associated": ["JSON", "HTML", "YAML"],
+        "associated": ["JSON","YAML"],
         "about": "Linguagem para intercâmbio de dados.",
         "start": null,
         "advance": null
@@ -904,7 +904,7 @@ export const tools = [
         "area": null,
         "stack": "back-end",
         "status": null,
-        "associated": ["JSON", "HTML", "XML"],
+        "associated": ["JSON","XML"],
         "about": "Linguagem para intercâmbio de dados.",
         "start": null,
         "advance": null

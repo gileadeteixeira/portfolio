@@ -9,14 +9,22 @@ export const createModalProjects = (type, project = null )=>{
                 <i class='bx bx-x custom-modal__icon'></i>
             </h2>
             <div class="custom-modal__data">
-                <span class="custom-modal__help-text">
+                <span class="custom-modal__help-description">
                     Clique ou toque em um projeto, e ele será exibido no seguinte modelo:
                 </span>
                 <a href="./assets/models/project-model-mobile.svg" target="_blank" rel="noopener noreferrer">
                     <img src="./assets/models/project-model-mobile.svg" alt="model-image" class="custom-modal__model">
                 </a>
                 <span class="custom-modal__help-text">
-                    QR Code: Clique, toque ou aponte a câmera para acessar o repositório.
+                    QR Code:
+                    <ul class="custom-modal__help-list">
+                        <li>
+                            - Clique ou toque para acessar o repositório;
+                        </li>
+                        <li>
+                            - Aponte a câmera para acessar o site.
+                        </li>
+                    </ul>
                 </span>
             </div>
         </div>

@@ -36,7 +36,7 @@ export const filterBarFixed = ()=>{
     const scrollY = window.pageYOffset;
     const headerHeight = document.querySelector('#header').offsetHeight;
     const menuItemContact = document.querySelector('.nav__menu a[href*="contact"]');
-    const filterBar = document.querySelector('#filter-bar');
+    const filterBar = document.querySelector('section#techs #filter-bar');
     const filterBarOffsetTop = filterBar.offsetTop;
     const filterBarHeight = filterBar.offsetHeight;
     const previousElementOffsetOp = filterBar.previousElementSibling.offsetTop;
@@ -53,6 +53,11 @@ export const filterBarFixed = ()=>{
     }
 
     if (menuItemContact.classList.contains('active-link')){
+        const currentModal = document.querySelector('section#techs .custom-modal__container');
+        if (currentModal != null) {
+            const parent = currentModal.parentElement;
+            parent.removeChild(currentModal);
+        }
         filterBar.classList.remove('fixed');
         nextElement.style.marginTop = '0';
     }
