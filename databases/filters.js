@@ -4,7 +4,11 @@ export const filters = [
         "label":"Áreas de atuação",
         "itens": [
             {
-                "key":"mobile", //optionSelected.value
+                "key":"database", //optionSelected.value
+                "value": "Banco de Dados"
+            },
+            {
+                "key":"mobile",
                 "value": "Dispositivos móveis"
             },
             {

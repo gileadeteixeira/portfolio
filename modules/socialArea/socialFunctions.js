@@ -20,5 +20,5 @@ export const copyEmail = ()=>{
     contactContainer.appendChild(emailModal);
     setTimeout(() => {
         contactContainer.removeChild(emailModal);
-    }, 2000);
+    }, 2500);
 }

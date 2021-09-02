@@ -80,10 +80,10 @@ export const createModalTools = {
                 <span class="custom-modal__tool-about">
                     ${tool.about.replace(".","")}
                 </span>
-                <span class="custom-modal__description">
+                <span class="custom-modal__date">
                     Início: ${tool.start == null ? "---" : new Date(tool.start).toLocaleString('pt-BR',{dateStyle: 'long'})}
                 </span>
-                <span class="custom-modal__description">
+                <span class="custom-modal__date">
                     Avanço: ${tool.advance == null ? "---" : new Date(tool.advance).toLocaleString('pt-BR',{dateStyle: 'long'})}
                 </span>
                 <span class="custom-modal__tech-indicator-text">
@@ -273,7 +273,12 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
     let currentHeight = window.innerHeight/100;
     //console.log(Math.floor(currentHeight));
 
-    let start = techsContent.children.length;
+    const loadIcon = document.querySelector('.loading-icon__box');
+    if (techsContent.contains(loadIcon)) {
+        techsContent.removeChild(loadIcon);
+    }
+
+    let start = techsContent.children.length;//remove loading
     let end = start + Math.floor(currentHeight); //shows more tools according to window height
     if (reset == true) {
         for (let index = start-1; index >= 0; index--) {
@@ -283,10 +288,6 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
         end = Math.floor(currentHeight);
     }
     
-    const loadIcon = document.querySelector('.loading-icon__box');
-    if (techsContent.contains(loadIcon)) {
-        techsContent.removeChild(loadIcon);
-    }
     
     action == 'more'
     ? showMoreTechs(arrayTools, techsContent, start, end)
@@ -294,8 +295,9 @@ export const loadTools = (base = 'default', action = 'more', reset = false, arra
 }
 
 export const showMoreTechs = (arrayTools, techsContent, start, end)=>{
+    //console.log(start, arrayTools.length, end)
     if (start < arrayTools.length) {
-        for (let index = start; index < end; index++) {
+        for (let index = start > 0 ? start : 0; index < end; index++) {
             if (arrayTools[index] != null) {
                 const tech = arrayTools[index];
                 const techsBox = document.createElement('div');
@@ -320,19 +322,20 @@ export const showMoreTechs = (arrayTools, techsContent, start, end)=>{
         }
     }
     else{
-        alert('Impossível exibir mais.');
+        newAlert('Impossível exibir mais.');
     }
 }
 
 export const showLessTechs = (techsContent, start)=>{
-    if (start > 9) {
-        const number = start % 3 == 0 ? 9 : 8;
-        for (let index = start-1; index >= start - number; index--) {
+    let currentHeight = Math.floor(window.innerHeight/100);
+    if (start > currentHeight) {
+        for (let index = start-1; index >= start - currentHeight; index--) {
+            //console.log(start, currentHeight, index);
             techsContent.removeChild(techsContent.children[index]);            
         }
     }
     else{
-        alert('Impossível exibir menos.');
+        newAlert('Impossível exibir menos.');
     }
 }
 
@@ -341,7 +344,6 @@ export const showModalTechs = (type, project = null)=>{
     const newModal = document.createElement("div");
     newModal.classList.add("custom-modal__container");
     newModal.innerHTML = createModalTools[type](project);
-    newModal.style.transition = '0.3s';
     section.appendChild(newModal);
     const customModalBtnClose = document.querySelector('section#techs .custom-modal__icon');
     //closeModal(newModal);
@@ -542,6 +544,7 @@ export const closeModal = (element = null)=>{
 
     if (element != null) {
         element.addEventListener("click", ()=>{
+            resetData();
             close();
         })
     } else {
@@ -563,7 +566,7 @@ export const finishFilter = (base)=>{
             const techsContent = document.querySelector('section#techs .custom-list__content');
             const checkBox = document.querySelector('section#techs #change-tools-checkbox');
             const span = document.querySelector('section#techs .selector-search');
-            const sectionProjects = document.querySelector('section#techs');
+            //const sectionProjects = document.querySelector('section#techs');
             showLoading(true);
             if (checkBox.checked == true){
                 techsContent.setAttribute('base', 'custom');
@@ -583,9 +586,8 @@ export const finishFilter = (base)=>{
             }, 1000);            
             span.innerHTML = optionSelected.result;
             span.classList.add('filled');
-            //optionSelected.result
             currentBase = arrayBase;
-            scrollToPosition(sectionProjects.offsetTop);
+            scrollToPosition(techsContent.offsetTop - 200);
             resetData();
             closeModal();
         } else {
@@ -640,6 +642,7 @@ export const resetFilter = (timeout = 1000, arrayTools = null, resetInput = fals
     techsContent.appendChild(loadIcon);
 
     
+    scrollToPosition(techsContent.offsetTop - 200);
 
     setTimeout(() => {
         if (arrayTools != null) {
@@ -649,6 +652,7 @@ export const resetFilter = (timeout = 1000, arrayTools = null, resetInput = fals
             loadTools('default', 'more', true);
         }
     }, timeout);
+    
 }
 
 export const compressString = (string, elementMaxWidth)=>{
@@ -693,14 +697,14 @@ export const finishOrder = (base)=>{
                     loadTools(base, 'more', true, currentBase);
                 }, 1000);              
             }
-            const sectionProjects = document.querySelector('section#techs');
+            //const sectionProjects = document.querySelector('section#techs');
             //const sectionOffsetBottom = sectionProjects.offsetTop + sectionProjects.offsetHeight;
             //const itemHeight = document.querySelector('section#techs .custom-list__box').offsetHeight;
-            //const techsContent = document.querySelector('section#techs .custom-list__content');
+            const techsContent = document.querySelector('section#techs .custom-list__content');
             //const contentOffsetBottom = techsContent.offsetTop + techsContent.offsetHeight;
             //const techsContentChildren = techsContent.children.length;
             //console.log(sectionOffsetBottom, contentOffsetBottom, itemHeight)
-            scrollToPosition(sectionProjects.offsetTop);
+            scrollToPosition(techsContent.offsetTop - 200);
             resetData();
             closeModal();
         } else {
@@ -734,6 +738,15 @@ export const showLoading = (reset = false)=>{
     techsContent.appendChild(loadIcon);
 }
 
+export const removeLoading = ()=>{
+    const techsContent = document.querySelector('section#techs .custom-list__content');
+    const loadIcon = document.querySelector('.loading-icon__box');
+
+    if (techsContent.contains(loadIcon)) {
+        techsContent.removeChild(loadIcon);
+    }
+}
+
 export const newAlert = (msg)=>{
     swal(msg, {
         button: {
@@ -745,8 +758,6 @@ export const newAlert = (msg)=>{
 }
 
 export const moveOnChangeContent = ()=>{
-    const sectionProjects = document.querySelector('section#techs');
-    const sectionOffsetBottom = sectionProjects.offsetTop + sectionProjects.offsetHeight;
-    const itemHeight = document.querySelector('section#techs .custom-list__box').offsetHeight;
-    scrollToPosition(sectionOffsetBottom - itemHeight*10);
+    const techsContent = document.querySelector('section#techs .custom-list__content');
+    scrollToPosition((techsContent.offsetTop + techsContent.offsetHeight)-200);
 }
