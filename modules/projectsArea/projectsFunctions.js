@@ -41,7 +41,7 @@ export const createModalProjects = (type, project = null )=>{
                     <img src="./assets/works/screenshots/png/${project.screenshot}.png" alt="${project.screenshot}-screenshot" class="custom-modal__screenshot">
                 </a>
                 <span class="custom-modal__description">
-                    ${project.about}
+                    ${project.about.replace(".", "")}
                 </span>
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer">
                     <img src="./assets/works/qrcodes/svg/${project.qrcode}.svg" alt="${project.qrcode}-qrcode" class="custom-modal__qrcode">
@@ -93,7 +93,3 @@ export const loadProjects = ()=>{
         }
     );
 };
-
-export const helpModal = ()=>{
-
-}

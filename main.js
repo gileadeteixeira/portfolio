@@ -1,5 +1,6 @@
 const homeAboutButton = document.querySelector('section#home #about-button');
 const scrollerTop = document.querySelector('#scroll-top');
+const scrollerTech = document.querySelector('#scroll-tech');
 
 const sections = document.querySelectorAll('section[id]');
 
@@ -18,11 +19,11 @@ const resetButton = document.querySelector('section#techs #tech-button-reset');
 
 const contactEmail = document.querySelector('section#contact #contact__email');
 
-import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed} from './modules/scrollFunctions.js';
+import {scrollOnClick, sectionOnScroll, scrollToTop, scrollToPosition, filterBarFixed, scrollToFilter} from './modules/scrollFunctions.js';
 import {loadLinksActions, showMenu} from './modules/menuArea/menuFunctions.js';
 import {loadEducation} from './modules/aboutArea/aboutFunctions.js';
 import {loadProjects, showModalProjects} from './modules/projectsArea/projectsFunctions.js';
-import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter, showLoading ,moveOnChangeContent} from './modules/toolsArea/toolsFunctions.js';
+import {loadTools, filterOnInput, showModalTechs, showModalPicker, resetFilter, showLoading, removeLoading ,moveOnChangeContent} from './modules/toolsArea/toolsFunctions.js';
 import {copyEmail} from './modules/socialArea/socialFunctions.js';
 
 homeAboutButton.addEventListener("click", (event)=>{
@@ -84,7 +85,11 @@ showMoreButton.addEventListener("click", (event)=>{
 showLessButton.addEventListener("click", (event)=>{
     event.preventDefault();
     loadTools(base, 'less');
-    moveOnChangeContent(); 
+    moveOnChangeContent();
+    showLoading();
+    setTimeout(() => {
+        removeLoading();      
+    }, 1000);
 });
 
 orderButton.addEventListener("click", (event)=>{
@@ -94,11 +99,7 @@ orderButton.addEventListener("click", (event)=>{
 
 resetButton.addEventListener("click", (event)=>{
     event.preventDefault();
-    const sectionProjectsOffsetTop = document.querySelector('section#techs').offsetTop;
-    scrollToPosition(sectionProjectsOffsetTop);
-    setTimeout(() => {
-        resetFilter(1000, null, true);        
-    }, 500);
+    resetFilter(1000, null, true); 
 });
 
 contactEmail.addEventListener("click", (event)=>{
@@ -109,5 +110,6 @@ contactEmail.addEventListener("click", (event)=>{
 window.addEventListener("scroll", () => {
     sectionOnScroll(sections);
     scrollToTop(scrollerTop);
-    filterBarFixed();   
+    scrollToFilter(scrollerTech);
+    //filterBarFixed();   
 });

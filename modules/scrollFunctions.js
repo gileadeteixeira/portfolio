@@ -79,6 +79,32 @@ export const scrollToTop = (scrollerTop)=>{
     }
 }
 
+export const scrollToFilter = (scrollerTech)=>{
+    const headerHeight = document.querySelector('#header').offsetHeight;
+    const filterBar = document.querySelector('section#techs #filter-bar');
+    const filterBarBottom = filterBar.offsetTop + filterBar.offsetHeight;
+    const item = document.querySelector('section#techs .custom-list__box');
+    let itemHeight = 0;
+    if (item != null) {
+        itemHeight = item.offsetHeight;
+    }
+    const menuItemContact = document.querySelector('.nav__menu a[href*="contact"]');
+    const yOffset = filterBarBottom - headerHeight - itemHeight;
+    if (window.pageYOffset >= yOffset-25) {
+        scrollerTech.classList.add('scroll-tech-open');
+        scrollerTech.addEventListener("click", (event)=>{
+            event.preventDefault();
+            scrollToPosition(filterBar.offsetTop - headerHeight -20);
+        });
+    } else {
+        scrollerTech.classList.remove('scroll-tech-open');
+    }
+
+    if (menuItemContact.classList.contains('active-link')){
+        scrollerTech.classList.remove('scroll-tech-open');
+    }
+}
+
 /**
  * Smooth scroll animation
  * @param {int} endX: destination x coordinate
