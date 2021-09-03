@@ -825,7 +825,7 @@ export const tools = [
         "type": "software",
         "area": null,
         "stack": null,
-        "status": "aprofundada",
+        "status": null,
         "associated": ["C","C++","C#","Microsoft",".NET"],
         "about": "Ambiente de desenvolvimento integrado (IDE).",
         "start": null,
