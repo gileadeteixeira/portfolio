@@ -701,7 +701,7 @@ img{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    background-color: var(--extra-light-grey);
+    background-color: var(--white);
     color: var(--black);
     padding: 1.5em;
     height: fit-content;
