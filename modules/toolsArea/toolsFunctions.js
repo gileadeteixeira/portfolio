@@ -28,7 +28,7 @@ export const setStatusIndicator = (tool)=>{
     if (tool.status == null) {
         return '#C61E1E'; //Red
     } else if (tool.status == 'utilizada'){
-        return '#E4AE22'; //Yellow
+        return '#BB9F02'; //Yellow
     } else if (tool.status == 'aprofundada'){
         return '#23A959'; //Blue
     }
