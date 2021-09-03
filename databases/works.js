@@ -11,7 +11,7 @@ export const works = [
         "url": "https://github.com/gileadeteixeira/fake-cinema",
         "qrcode": "fakecinema",
         "screenshot": "fakecinema",
-        "about": "Site para gerar postêrs aleatórios automaticamente."
+        "about": "Site para gerar posters aleatórios automaticamente."
     },
     {
         "name": "Splitter",
