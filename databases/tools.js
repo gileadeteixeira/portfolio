@@ -1,5 +1,18 @@
 export const tools = [
     {
+        "alias": "AdonisJS",
+        "fullName": "AdonisJS",
+        "src": "adonis",
+        "type": "framework",
+        "area": "web",
+        "stack": "back-end",
+        "status": null,
+        "associated": ["JavaScript","Node.js"],
+        "about": "Framework back-end, em JavaScript, para construção de servidores web.",
+        "start": null,
+        "advance": null
+    },
+    {
         "alias": "AngularJS",
         "fullName": "AngularJS",
         "src": "angularjs",
@@ -49,6 +62,19 @@ export const tools = [
         "associated": ["Amazon"],
         "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
         "start": null,
+        "advance": null
+    },
+    {
+        "alias": "Azure",
+        "fullName": "Microsoft Azure",
+        "src": "azure",
+        "type": "cloud",
+        "area": "server",
+        "stack": "back-end",
+        "status": "utilizada",
+        "associated": ["Microsoft"],
+        "about": "Plataforma para gerenciamento de dados e arquivos em nuvem.",
+        "start": "Oct 22 2021",
         "advance": null
     },
     {
@@ -149,10 +175,10 @@ export const tools = [
         "type": "software",
         "area": null,
         "stack": null,
-        "status": null,
+        "status": "utilizada",
         "associated": ["Docker"],
         "about": "Plataforma para virtualização.",
-        "start": null,
+        "start": "Oct 11 2021",
         "advance": null
     },
     {
@@ -214,10 +240,10 @@ export const tools = [
         "type": "framework",
         "area": "web",
         "stack": "back-end",
-        "status": null,
+        "status": "utilizada",
         "associated": ["JavaScript","Node.js"],
         "about": "Framework back-end, em JavaScript, para construção de servidores web.",
-        "start": null,
+        "start": "Oct 13 2021",
         "advance": null
     },
     {
@@ -364,6 +390,19 @@ export const tools = [
         "advance": "Jun 30 2021"
     },
     {
+        "alias": "IntelliJ",
+        "fullName": "IntelliJ IDEA",
+        "src": "intellij",
+        "type": "software",
+        "area": null,
+        "stack": null,
+        "status": "aprofundada",
+        "associated": ["Java","JetBrains"],
+        "about": "Ambiente de desenvolvimento integrado (IDE).",
+        "start": "Sep 20 2020",
+        "advance": "Sep 27 2020"
+    },
+    {
         "alias": "Ionic",
         "fullName": "Ionic",
         "src": "ionic",
@@ -487,10 +526,10 @@ export const tools = [
         "type": "stylesheet-language",
         "area": "web",
         "stack": "front-end",
-        "status": null,
+        "status": "utilizada",
         "associated": ["CSS", "Sass"],
         "about": "Linguagem de folhas de estilo.",
-        "start": null,
+        "start": "Oct 04 2021",
         "advance": null
     },
     {
@@ -513,10 +552,10 @@ export const tools = [
         "type": "software",
         "area": "database",
         "stack": "back-end",
-        "status": null,
+        "status": "utilizada",
         "associated": ["SQL"],
         "about": "Software de banco de dados.",
-        "start": null,
+        "start": "Oct 20 2021",
         "advance": null
     },
     {
@@ -578,11 +617,11 @@ export const tools = [
         "type": "software",
         "area": "server",
         "stack": "back-end",
-        "status": "utilizada",
+        "status": "aprofundada",
         "associated": ["JavaScript","React"],
         "about": "Software para executar JavaScript fora do navegador.",
         "start": "Mar 21 2021",
-        "advance": null
+        "advance": "Oct 12 2021"
     },
     {
         "alias": "NPM",
@@ -646,6 +685,19 @@ export const tools = [
         "status": null,
         "associated": ["SQL", "MySQL"],
         "about": "Software de banco de dados.",
+        "start": null,
+        "advance": null
+    },
+    {
+        "alias": "PyCharm",
+        "fullName": "PyCharm",
+        "src": "pycharm",
+        "type": "software",
+        "area": null,
+        "stack": null,
+        "status": null,
+        "associated": ["Python","JetBrains"],
+        "about": "Ambiente de desenvolvimento integrado (IDE).",
         "start": null,
         "advance": null
     },

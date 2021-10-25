@@ -1,6 +1,6 @@
 import {tools} from '../../databases/tools.js';
 
-import {filters} from '../../databases/filters.js';
+import {filters} from '../../databases/toolsFilters.js';
 
 import {scrollToPosition} from '../../modules/scrollFunctions.js';
 
@@ -217,6 +217,8 @@ export const filterOnInput = (text)=>{
             }
         })
         //console.log(arrayTools);
+    } else {
+        arrayTools = editTools.loadAllTools();
     }
     
     const timeout = 500;
