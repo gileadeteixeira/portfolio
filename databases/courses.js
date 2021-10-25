@@ -33,5 +33,12 @@ export const courses = [
         "place": "Online",
         "startDate": "Jun 2021",
         "endDate": "Jun 2021"
+    },
+    {
+        "name": "Criando APIs com Node",
+        "institution": "balta.io",
+        "place": "Online",
+        "startDate": "Oct 2021",
+        "endDate": "Oct 2021"
     }
 ]

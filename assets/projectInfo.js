@@ -1,5 +1,5 @@
 export const projectColors = {
-    black: '#000000',
+    black: '#121212',
     dark_grey: '#5B5B58',
     medium_grey: '#939292',
     light_grey: '#C4C4C4',
