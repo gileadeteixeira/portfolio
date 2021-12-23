@@ -146,14 +146,14 @@ export const tools = [
         "alias": "Dart",
         "fullName": "Dart",
         "src": "dart",
-        "type": "programming language",
-        "area": "multi-platform",
-        "stack": "front-end",
-        "status": null,
+        "type": "programming-language",
+        "area": "logic",
+        "stack": null,
+        "status": "aprofundada",
         "associated": ["Google", "Flutter"],
-        "about": "Linguagem front-end para desenvolvimento multiplataforma.",
-        "start": null,
-        "advance": null
+        "about": "Linguagem de programação.",
+        "start": "Dec 01 2021",
+        "advance": "Dec 06 2021"
     },
     {
         "alias": "Django",
@@ -279,10 +279,10 @@ export const tools = [
         "type": "framework",
         "area": "multi-platform",
         "stack": "front-end",
-        "status": null,
+        "status": "utilizada",
         "associated": ["Dart","Google"],
         "about": "Framework front-end, em Dart, para desenvolvimento de aplicações nativas.",
-        "start": null,
+        "start": "Dec 08 2021",
         "advance": null
     },
     {
